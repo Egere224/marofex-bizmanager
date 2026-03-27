@@ -17,10 +17,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/test-db', (req, res) => {
-  console.log("🔥 HIT TEST ROUTE");
-  res.send("WORKING!!!");
-});
 
 app.use("/api/businesses", businessRoutes);
 app.use("/api/businesses/:businessId/sales", salesRoutes);

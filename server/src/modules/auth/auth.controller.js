@@ -6,11 +6,16 @@ import { sendSuccess } from "../../utils/response.js";
  * Register Controller
  */
 export const registerController = asyncHandler(async (req, res) => {
+    console.log(req.body)
   const { full_name, email, password, phone } = req.body;
 
   const user = await registerUser(full_name, email, password, phone);
-
-  console.log(req.body)
+console.log("SERVICE RECEIVED:", {
+    full_name,
+    email,
+    password,
+    phone
+  });
 
   sendSuccess(res, user, "User registered successfully", 201);
 });
