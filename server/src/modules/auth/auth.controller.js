@@ -10,6 +10,8 @@ export const registerController = asyncHandler(async (req, res) => {
 
   const user = await registerUser(full_name, email, password, phone);
 
+  console.log(req.body)
+
   sendSuccess(res, user, "User registered successfully", 201);
 });
 
