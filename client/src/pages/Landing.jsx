@@ -1,0 +1,451 @@
+import { Link } from "react-router-dom";
+import {
+  FaBoxOpen,
+  FaChartLine,
+  FaUsers,
+  FaCheckCircle,
+} from "react-icons/fa";
+
+import FadeInSection from "../components/FadeInSection";
+
+function Landing() {
+  return (
+    <div className="relative bg-gray-50 dark:bg-[#020617] dark:text-white transition-colors duration-300 min-h-screen overflow-hidden">
+
+      {/* ================= DARK MODE NEON BACKGROUND ================= */}
+      <div className="hidden dark:block absolute inset-0 pointer-events-none">
+
+        <div className="absolute -top-50 left-1/2 -translate-x-1/2 w-225 h-225
+        bg-linear-to-r from-purple-600 via-indigo-500 to-cyan-400
+        opacity-30 blur-[200px] rounded-full" />
+
+        <div className="absolute -bottom-50 right--50 w-200 h-200
+        bg-linear-to-r from-indigo-600 to-purple-500
+        opacity-20 blur-[200px] rounded-full" />
+
+      </div>
+
+
+      {/* ================= HERO SECTION ================= */}
+
+      <section className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
+
+        {/* HERO TEXT */}
+        <div className="text-center md:text-left">
+
+          <p className="text-shadow-gray-50 font-semibold tracking-widest mb-4">
+           <small className="text-3xl md:text-4xl font-black bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-xl">
+  Marofex
+</small> BUSINESS MANAGER
+          </p>
+
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+            Manage Your Business Inventory
+            <span className="block text-indigo-400">
+              Effortlessly
+            </span>
+          </h1>
+
+          <p className="text-gray-600 dark:text-gray-400 max-w-lg mb-10 text-lg">
+            Track stock, record sales, manage customer debts, and monitor your
+            business performance — all from one powerful dashboard.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+
+            <Link
+              to="/register"
+              className="px-8 py-3 rounded-full font-semibold text-white
+               bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 hover:scale-105 transition"
+            >
+              Start Free Trial
+            </Link>
+
+            <Link
+              to="/pricing"
+              className="px-8 py-3 rounded-lg border border-gray-300 dark:border-gray-600
+              hover:border-cyan-400 transition"
+            >
+              View Pricing
+            </Link>
+
+          </div>
+
+          <p className="text-sm text-gray-500 dark:text-gray-500 mt-6">
+            14-day free trial • No credit card required
+          </p>
+
+        </div>
+
+
+       {/* HERO VISUAL */}
+<div className="relative hidden md:flex justify-center">
+
+  {/* dashboard image */}
+  <img
+    src="/heroLight.jpeg"
+    alt="Marofex dashboard preview"
+    className="block dark:hidden w-full max-w-2xl rounded-2xl shadow-2xl"
+  />
+
+  <img
+    src="heroDark.jpeg"
+    alt="Marofex dashboard preview"
+    className="hidden dark:block w-full max-w-2xl rounded-2xl shadow-2xl"
+  />
+
+</div>
+      </section>
+
+
+
+      {/* ================= FEATURES ================= */}
+
+     <section className="relative overflow-hidden py-24">
+
+  {/* 🌈 Background glow */}
+  <div className="absolute inset-0 bg-gradient-to-br from-white via-indigo-50 to-purple-50 dark:from-[#020617] dark:via-[#020617] dark:to-[#020617]" />
+  <div className="absolute inset-0 bg-gradient-to-r from-indigo-200/20 via-purple-200/20 to-cyan-200/20 blur-3xl opacity-40" />
+
+  <div className="relative max-w-7xl mx-auto px-6">
+
+    {/* 🔥 Section Title */}
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+      Everything You Need to Run Your Business
+    </h2>
+
+    {/* GRID */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* CARD 1 */}
+      <div className="group p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl 
+      border border-white/40 dark:border-white/10 shadow-lg hover:shadow-2xl 
+      hover:-translate-y-2 transition duration-300">
+
+        <FaBoxOpen className="text-cyan-400 text-3xl mb-4 
+        drop-shadow-[0_0_12px_rgba(6,182,212,0.7)] group-hover:scale-110 transition" />
+
+        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+          Inventory Management
+        </h3>
+
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Stay in control of your stock at all times. Know what’s available,
+          what’s running low, and never miss a sale due to stockouts.
+        </p>
+
+      </div>
+
+
+      {/* CARD 2 */}
+      <div className="group p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl 
+      border border-white/40 dark:border-white/10 shadow-lg hover:shadow-2xl 
+      hover:-translate-y-2 transition duration-300">
+
+        <FaChartLine className="text-indigo-400 text-3xl mb-4 
+        drop-shadow-[0_0_12px_rgba(99,102,241,0.7)] group-hover:scale-110 transition" />
+
+        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+          Sales Tracking
+        </h3>
+
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Record every transaction instantly and get real-time insights into
+          your daily revenue, profit, and business performance.
+        </p>
+
+      </div>
+
+
+      {/* CARD 3 */}
+      <div className="group p-8 rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl 
+      border border-white/40 dark:border-white/10 shadow-lg hover:shadow-2xl 
+      hover:-translate-y-2 transition duration-300">
+
+        <FaUsers className="text-purple-400 text-3xl mb-4 
+        drop-shadow-[0_0_12px_rgba(168,85,247,0.7)] group-hover:scale-110 transition" />
+
+        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+          Customer Debt Tracking
+        </h3>
+
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Track who owes you and how much. Manage customer balances and
+          payments with clarity and confidence.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+      {/* ================= HOW IT WORKS ================= */}
+
+      <FadeInSection>
+  <section className="relative bg-gray-50 dark:bg-[#020617] overflow-hidden py-24">
+
+    {/* 🌌 SUBTLE DARK GLOW */}
+    <div className="hidden dark:block absolute inset-0 pointer-events-none">
+
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px]
+      bg-gradient-to-r from-indigo-500 to-purple-500
+      opacity-10 blur-[140px] rounded-full" />
+
+    </div>
+
+    <div className="relative max-w-6xl mx-auto px-6 text-center">
+
+      <h2 className="text-3xl md:text-4xl font-bold mb-14 text-gray-900 dark:text-white">
+        How It Works
+      </h2>
+
+      <div className="grid md:grid-cols-3 gap-10">
+
+        <div className="group">
+          <div className="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full
+          bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-md
+          group-hover:scale-110 transition">
+            <FaCheckCircle className="text-xl" />
+          </div>
+
+          <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">
+            Create Account
+          </h3>
+
+          <p className="text-gray-600 dark:text-gray-400">
+            Register and get access to a 14-day free trial.
+          </p>
+        </div>
+
+        <div className="group">
+          <div className="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full
+          bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-md
+          group-hover:scale-110 transition">
+            <FaCheckCircle className="text-xl" />
+          </div>
+
+          <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">
+            Add Your Business
+          </h3>
+
+          <p className="text-gray-600 dark:text-gray-400">
+            Create a business and start adding your products and customers.
+          </p>
+        </div>
+
+        <div className="group">
+          <div className="flex items-center justify-center w-14 h-14 mx-auto mb-4 rounded-full
+          bg-gradient-to-r from-cyan-400 to-blue-500 text-white shadow-md
+          group-hover:scale-110 transition">
+            <FaCheckCircle className="text-xl" />
+          </div>
+
+          <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">
+            Start Managing Sales
+          </h3>
+
+          <p className="text-gray-600 dark:text-gray-400">
+            Track inventory, sales, and payments from your dashboard.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</FadeInSection>
+
+      <section className="max-w-7xl mx-auto px-6 py-20">
+
+  <div className="grid md:grid-cols-2 gap-12 items-center">
+
+    {/* TEXT */}
+    <div>
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        About Marofex
+      </h2>
+
+      <p className="text-gray-600 dark:text-gray-400 mb-4">
+        Marofex is a modern business management platform designed to help small and growing businesses stay organized, track performance, and make smarter decisions.
+      </p>
+
+      <p className="text-gray-600 dark:text-gray-400">
+        From inventory tracking to sales monitoring and customer debt management, Marofex simplifies your daily operations — giving you full control of your business in one place.
+      </p>
+    </div>
+
+    {/* VISUAL CARD */}
+    <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 
+    rounded-2xl p-6 shadow">
+
+      <h3 className="text-lg font-semibold mb-4">
+        What You Can Do
+      </h3>
+
+      <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+        <li>• Track inventory in real-time</li>
+        <li>• Record and monitor sales</li>
+        <li>• Manage customer debts</li>
+        <li>• View business performance insights</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section className="max-w-7xl mx-auto px-6 py-20">
+
+  <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+    Why Choose Marofex
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <h3 className="font-semibold mb-2">Simple & Easy</h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm">
+        Get started quickly without complicated setup or training.
+      </p>
+    </div>
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <h3 className="font-semibold mb-2">All-in-One Platform</h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm">
+        Manage inventory, sales, and customers from one dashboard.
+      </p>
+    </div>
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <h3 className="font-semibold mb-2">Real-Time Insights</h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm">
+        Monitor your business performance instantly.
+      </p>
+    </div>
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <h3 className="font-semibold mb-2">Scalable</h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm">
+        Built to grow with your business.
+      </p>
+    </div>
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <h3 className="font-semibold mb-2">Secure</h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm">
+        Your data is protected and always accessible.
+      </p>
+    </div>
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <h3 className="font-semibold mb-2">Fast Performance</h3>
+      <p className="text-gray-600 dark:text-gray-400 text-sm">
+        Smooth and responsive experience across devices.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
+
+  <h2 className="text-3xl font-bold mb-6">
+    Built for Real Business Owners
+  </h2>
+
+  <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+    Whether you run a small shop, manage inventory, or track customer debts,
+    Marofex helps you stay organized, make better decisions, and grow faster.
+  </p>
+
+</section>
+
+<section className="max-w-6xl mx-auto px-6 py-20 text-center">
+
+  <h2 className="text-3xl md:text-4xl font-bold mb-12">
+    What Our Users Say
+  </h2>
+
+  <div className="grid md:grid-cols-2 gap-8">
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <p className="text-gray-600 dark:text-gray-400 mb-4">
+        “Marofex completely changed how I manage my business. Tracking sales and debts is now effortless.”
+      </p>
+      <span className="font-semibold text-sm">— Business Owner</span>
+    </div>
+
+    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
+      <p className="text-gray-600 dark:text-gray-400 mb-4">
+        “I finally have full control over my inventory. This platform is exactly what I needed.”
+      </p>
+      <span className="font-semibold text-sm">— Retail Manager</span>
+    </div>
+
+  </div>
+
+</section>
+
+      {/* ================= CTA ================= */}
+
+      <section className="bg-linear-to-r from-indigo-600 to-purple-600 py-20 text-center">
+
+        <h2 className="text-3xl font-bold text-white mb-4">
+          Start Your 14-Day Free Trial Today
+        </h2>
+
+        <p className="text-indigo-100 mb-8">
+          No credit card required. Cancel anytime.
+        </p>
+
+        <Link
+          to="/register"
+          className="bg-white text-indigo-600 font-semibold px-8 py-3 rounded-lg hover:scale-105 transition"
+        >
+          Get Started
+        </Link>
+
+      </section>
+
+
+
+      {/* ================= FOOTER ================= */}
+
+      <footer className="bg-gray-900 text-gray-400 py-10">
+
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+
+          <p>© {new Date().getFullYear()} BizManager</p>
+
+          <div className="flex gap-6">
+
+            <Link to="/blog" className="hover:text-white">
+              Blog
+            </Link>
+
+            <Link to="/pricing" className="hover:text-white">
+              Pricing
+            </Link>
+
+            <Link to="/login" className="hover:text-white">
+              Login
+            </Link>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+    </div>
+  );
+}
+
+export default Landing;
