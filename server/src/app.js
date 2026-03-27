@@ -34,6 +34,10 @@ app.use("/api/auth", authRoutes);
 app.use(errorMiddleware);
 
 // test route
+app.get('/', (req, res) => {
+  res.send("APR RUNNING!!!");
+});
+
 app.get('/test-db', (req, res) => {
   console.log("🔥 HIT TEST ROUTE");
   res.send("WORKING!!!");
