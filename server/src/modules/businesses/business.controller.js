@@ -11,6 +11,8 @@ export const getUserBusinessesController = asyncHandler(async (req, res) => {
 });
 
 export const createBusinessController = asyncHandler(async (req, res) => {
+  console.log("USER:", req.user);
+console.log("BODY:", req.body);
   const userId = req.user.id;
   const { name, currency } = req.body;
 
