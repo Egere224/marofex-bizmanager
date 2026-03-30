@@ -58,6 +58,20 @@ function App() {
 
         </Route>
 
+        <Route
+    path="/admin"
+    element={
+      <ProtectedRoute role="admin">
+        <AdminLayout />
+      </ProtectedRoute>
+    }
+  >
+    <Route path="payments" element={<AdminPayments />} />
+    {/* future admin routes */}
+    <Route path="users" element={<div>Users</div>} />
+    <Route path="businesses" element={<div>Businesses</div>} />
+  </Route>
+
       </Routes>
     </BrowserRouter>
   );

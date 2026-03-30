@@ -108,5 +108,13 @@ export const getAllPaymentsService = async () => {
     ORDER BY pr.requested_at DESC
   `);
 
-  return result.rows;
+ const BASE_URL = "https://marofex-bizmanager.onrender.com";
+
+  // ✅ convert proof_url to full URL
+  const payments = result.rows.map((payment) => ({
+    ...payment,
+    proof_url: `${BASE_URL}/uploads/${payment.proof_url}`,
+  }));
+
+  return payments;
 };
