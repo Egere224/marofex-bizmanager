@@ -25,6 +25,7 @@ export const loginController = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const data = await loginUser(email, password);
+  console.log("backend response:", data)
 
   sendSuccess(res, data, "Login successful");
 });
