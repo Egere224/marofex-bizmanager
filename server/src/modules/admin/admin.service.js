@@ -90,3 +90,23 @@ export const approvePaymentService = async (paymentId, adminId) => {
     client.release();
   }
 };
+
+export const getAllPaymentsService = async () => {
+  const result = await pool.query(`
+    SELECT 
+      pr.id,
+      pr.amount,
+      pr.status,
+      pr.proof_url,
+      pr.requested_at,
+      u.full_name,
+      u.email,
+      b.name AS business_name
+    FROM payment_requests pr
+    JOIN users u ON pr.user_id = u.id
+    JOIN businesses b ON pr.business_id = b.id
+    ORDER BY pr.requested_at DESC
+  `);
+
+  return result.rows;
+};
