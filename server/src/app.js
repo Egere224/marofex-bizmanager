@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/admin", adminRoutes);
+app.use("/uploads", express.static("uploads"));
 
 
 app.use("/api/businesses", businessRoutes);
