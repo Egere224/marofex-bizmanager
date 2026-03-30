@@ -7,6 +7,8 @@ import businessRoutes from "./modules/businesses/business.routes.js";
 import productRoutes from "./modules/products/products.routes.js";
 import customersRoutes from "./modules/customers/customers.routes.js";
 import authRoutes from "./modules/auth/auth.routes.js";
+import adminRoutes from "./modules/admin/admin.routes.js";
+
 
 import { errorMiddleware } from "./middleware/error.middleware.js";
 
@@ -16,6 +18,8 @@ const app = express();
 // middlewares
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/admin", adminRoutes);
 
 
 app.use("/api/businesses", businessRoutes);

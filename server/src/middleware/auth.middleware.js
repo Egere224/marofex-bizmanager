@@ -38,41 +38,49 @@ export const protect = async (req, res, next) => {
   try {
     let token;
 
-    // 1. Get token from header
+    // 1️⃣ Get token from Authorization header
     if (
       req.headers.authorization &&
-      req.headers.authorization.startsWith("Bearer")
+      req.headers.authorization.startsWith("Bearer ")
     ) {
       token = req.headers.authorization.split(" ")[1];
     }
 
-    // 2. If no token
+    // 2️⃣ If no token
     if (!token) {
-      return res.status(401).json({ message: "Not authorized, no token" });
+      return res.status(401).json({
+        success: false,
+        message: "Not authorized, no token",
+      });
     }
 
-    // 3. Verify token
+    // 3️⃣ Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // 4. Get user from DB (exclude password)
-    const result = await pool.query(
+    // 4️⃣ Get user from database
+    const { rows } = await pool.query(
       `SELECT id, full_name, email, role FROM users WHERE id = $1`,
       [decoded.id]
     );
 
-    const user = result.rows[0];
-
-    if (!user) {
-      return res.status(401).json({ message: "User not found" });
+    if (rows.length === 0) {
+      return res.status(401).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
-    // 5. Attach user to request
-    req.user = user;
+    // ✅ 5️⃣ Attach user to request (VERY IMPORTANT)
+    req.user = rows[0];
 
     next();
-
   } catch (error) {
-    return res.status(401).json({ message: "Not authorized, invalid token" });
+    console.error("PROTECT ERROR:", error.message);
+
+    return res.status(401).json({
+      success: false,
+      message: "Invalid or expired token",
+    });
   }
 };
 
