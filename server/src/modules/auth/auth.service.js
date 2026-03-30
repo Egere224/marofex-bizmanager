@@ -28,9 +28,9 @@ export const registerUser = async (full_name, email, password, phone) => {
 
     // 💾 insert user
     const result = await pool.query(
-      `INSERT INTO users(full_name, email, password_hash, phone, role)
-       VALUES($1,$2,$3,$4,'user')
-       RETURNING id, full_name, email, phone`,
+      `INSERT INTO users(full_name, email, password_hash, phone)
+       VALUES($1,$2,$3,$4,)
+       RETURNING id, full_name, email, phone, role`,
       [full_name, email, hashedPassword, phone]
     );
 
