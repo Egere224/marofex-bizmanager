@@ -15,6 +15,8 @@ import Sales from "./pages/Sales";
 import Customers from "./pages/Customers";
 import Debtors from "./pages/Debtors";
 import CustomerDebts from "./pages/CustomerDebts";
+import AdminPayments from "./pages/AdminPayments";
+import AdminLayout from "./components/layout/AdminLayout";
 
 import DashboardLayout from "./components/layout/DashboardLayout";
 import ProtectedRoute from "./components/ProtectedRoute";

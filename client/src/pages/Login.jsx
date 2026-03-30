@@ -6,7 +6,7 @@ import { loginUser } from "../services/authService";
 
 function Login() {
 
-  const { login, token } = useContext(AuthContext);
+  const { login, user, token } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -14,10 +14,14 @@ function Login() {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    if (token && token !== "undefined") {
+  if (token && token !== "undefined") {
+    if (user?.role === "admin") {
+      navigate("/admin/payments");
+    } else {
       navigate("/businesses");
     }
-  }, [token, navigate]);
+  }
+}, [token, user, navigate]);
 
   const handleSubmit = async (e) => {
 
@@ -26,13 +30,17 @@ function Login() {
     try {
 
       const res = await loginUser({ email, password });
-
+console.log("full response:", res.data)
 
 const token = res.data.token;
 const user = res.data.user || null;
 
 login(user, token);
+     if (user?.role === "admin") {
+      navigate("/admin/payments");
+    } else {
       navigate("/businesses");
+    }
 
     } catch (error) {
 

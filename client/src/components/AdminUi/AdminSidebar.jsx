@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useTheme } from "../context/theme";
+import { useTheme } from "../../context/themeContext";
 import { FaMoneyBillWave, FaUsers, FaBuilding } from "react-icons/fa";
 
 const AdminSidebar = () => {

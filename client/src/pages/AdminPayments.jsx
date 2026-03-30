@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from "react";
-import { useTheme } from "../context/theme";
+import { useTheme } from "../context/themeContext";
 import ThemeToggle from "../components/ThemeToggle";
 import { AuthContext } from "../context/AuthContext";
-import { getPayments, approvePayment } from "../services/admin";
+import { getPayments, approvePayment } from "../services/adminService";
 import { FaCheckCircle, FaClock } from "react-icons/fa";
 
 const AdminPayments = () => {
