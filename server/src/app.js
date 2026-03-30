@@ -8,6 +8,7 @@ import productRoutes from "./modules/products/products.routes.js";
 import customersRoutes from "./modules/customers/customers.routes.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import adminRoutes from "./modules/admin/admin.routes.js";
+import paymentRoutes from "./modules/payment/payment.routes.js";
 
 
 import { errorMiddleware } from "./middleware/error.middleware.js";
@@ -19,10 +20,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/admin", adminRoutes);
 app.use("/uploads", express.static("uploads"));
 
-
+app.use("/api/admin", adminRoutes);
+app.use("/api/payment", paymentRoutes);
 app.use("/api/businesses", businessRoutes);
 app.use("/api/businesses/:businessId/sales", salesRoutes);
 app.use("/api/businesses/:businessId/dashboard", dashboardRoutes);
