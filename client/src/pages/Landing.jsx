@@ -9,13 +9,34 @@ import {
   FaUsers,
   FaCheckCircle,
 } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
-import about from "../assets/about.jpeg"
-
+import about from "../assets/about.jpeg";
+import heroDark from "../assets/heroDark.jpeg";
+import heroLight from "../assets/heroLight.jpeg";
 
 import FadeInSection from "../components/FadeInSection";
 
 function Landing() {
+
+const texts = [
+  "Manage Your Business Inventory",
+  "Track Sales in Real-Time",
+  "Manage Customer Debts",
+  "Grow Your Business Faster"
+];
+
+const [index, setIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setIndex((prev) => (prev + 1) % texts.length);
+  }, 2000); // change every 2 seconds
+
+  return () => clearInterval(interval);
+}, []);
+
+const changingText = texts[index];
   return (
     <div className="relative bg-gray-50 dark:bg-[#020617] dark:text-white transition-colors duration-300 min-h-screen overflow-hidden">
 
@@ -47,7 +68,7 @@ function Landing() {
           </p>
 
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-            Manage Your Business Inventory
+            {changingText}
             <span className="block text-indigo-400">
               Effortlessly
             </span>
@@ -86,19 +107,19 @@ function Landing() {
 
 
        {/* HERO VISUAL */}
-<div className="relative hidden md:flex justify-center">
+<div className="relative md:flex justify-center">
 
   {/* dashboard image */}
   <img
-    src="/heroLight.jpeg"
+    src={heroLight}
     alt="Marofex dashboard preview"
-    className="block dark:hidden w-full max-w-2xl rounded-2xl shadow-2xl"
+    className="block dark:hidden w-full max-w-md sm:max-w-lg md:max-w-2xl rounded-2xl shadow-2xl"
   />
 
   <img
-    src="heroDark.jpeg"
+    src={heroDark}
     alt="Marofex dashboard preview"
-    className="hidden dark:block w-full max-w-2xl rounded-2xl shadow-2xl"
+    className="hidden dark:block w-full max-w-md sm:max-w-lg md:max-w-2xl rounded-2xl shadow-2xl"
   />
 
 </div>
