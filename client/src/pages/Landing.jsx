@@ -35,7 +35,7 @@ useEffect(() => {
   const interval = setInterval(() => {
     i++;
     setIndex(i % texts.length);
-  }, 2000);
+  }, 3000);
 
   return () => clearInterval(interval);
 }, []);
@@ -74,9 +74,12 @@ const changingText = texts[index];
 
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
             Manage Your Business Inventory
-            <span key={changingText} className="block text-indigo-400">
-              {changingText}
-            </span>
+            <span
+  key={changingText}
+  className="block text-indigo-400 animate-fadeSlide"
+>
+  {changingText}
+</span>
           </h1>
 
           <p className="text-gray-600 dark:text-gray-400 max-w-lg mb-10 text-lg">
