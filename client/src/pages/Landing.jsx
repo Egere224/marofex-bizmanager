@@ -6,6 +6,9 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 
+import about from "../assets/about"
+
+
 import FadeInSection from "../components/FadeInSection";
 
 function Landing() {
@@ -48,7 +51,7 @@ function Landing() {
 
           <p className="text-gray-600 dark:text-gray-400 max-w-lg mb-10 text-lg">
             Track stock, record sales, manage customer debts, and monitor your
-            business performance — all from one powerful dashboard.
+            business performance all from one powerful dashboard.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -259,39 +262,80 @@ function Landing() {
   </section>
 </FadeInSection>
 
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="relative max-w-7xl mx-auto px-6 py-20">
+
+  {/* BACKGROUND GLOW */}
+  <div className="absolute inset-0 -z-10 blur-3xl opacity-20 bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500"></div>
 
   <div className="grid md:grid-cols-2 gap-12 items-center">
 
     {/* TEXT */}
-    <div>
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">
-        About Marofex
+    <div className="text-center md:text-left">
+      
+      <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+        About{" "}
+        <span className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
+          Marofex
+        </span>
       </h2>
 
-      <p className="text-gray-600 dark:text-gray-400 mb-4">
+      <p className="text-gray-600 dark:text-gray-400 mb-4 text-base md:text-lg leading-relaxed">
         Marofex is a modern business management platform designed to help small and growing businesses stay organized, track performance, and make smarter decisions.
       </p>
 
-      <p className="text-gray-600 dark:text-gray-400">
+      <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
         From inventory tracking to sales monitoring and customer debt management, Marofex simplifies your daily operations — giving you full control of your business in one place.
       </p>
+
     </div>
 
-    {/* VISUAL CARD */}
-    <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 
-    rounded-2xl p-6 shadow">
+    {/* VISUAL SIDE */}
+    <div className="space-y-6">
 
-      <h3 className="text-lg font-semibold mb-4">
-        What You Can Do
-      </h3>
+      {/* IMAGE */}
+      <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+        <img
+          src={about}// replace with your image
+          alt="Dashboard Preview"
+          className="w-full h-auto object-cover"
+        />
+      </div>
 
-      <ul className="space-y-3 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-        <li>• Track inventory in real-time</li>
-        <li>• Record and monitor sales</li>
-        <li>• Manage customer debts</li>
-        <li>• View business performance insights</li>
-      </ul>
+      {/* FEATURE CARD */}
+      <div className="
+        bg-white/80 dark:bg-white/5
+        backdrop-blur-xl
+        border border-gray-200 dark:border-white/10
+        rounded-2xl p-6 shadow-xl
+      ">
+        <h3 className="text-lg font-semibold mb-4">
+          What You Can Do
+        </h3>
+
+        <ul className="space-y-4 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+
+          <li className="flex items-center gap-3">
+            <span className="text-purple-500">✔</span>
+            Track inventory in real-time
+          </li>
+
+          <li className="flex items-center gap-3">
+            <span className="text-indigo-500">✔</span>
+            Record and monitor sales
+          </li>
+
+          <li className="flex items-center gap-3">
+            <span className="text-blue-500">✔</span>
+            Manage customer debts
+          </li>
+
+          <li className="flex items-center gap-3">
+            <span className="text-green-500">✔</span>
+            View business performance insights
+          </li>
+
+        </ul>
+      </div>
 
     </div>
 
