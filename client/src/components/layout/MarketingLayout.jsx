@@ -50,9 +50,6 @@ function MarketingLayout() {
   md:dark:bg-white md:dark:bg-none md:dark:shadow-lg md:dark:border md:dark:border-gray-200
 
   text-white md:dark:text-gray-900
-
-
-  text-white md:dark:text-gray-900
   
 ">
 <div className="flex items-center justify-between">
@@ -182,7 +179,7 @@ Pricing
 {menuOpen && (
   <div className="
     md:hidden
-    absolute left-0 top-full w-full z-50
+    fixed tpo-[64px] left-0 w-full z-[9999]
     bg-[#020617] dark:bg-[#020617]
     px-6 py-6
     space-y-5
