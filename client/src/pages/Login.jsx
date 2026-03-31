@@ -30,7 +30,6 @@ function Login() {
     try {
 
       const res = await loginUser({ email, password });
-console.log("full response:", res.data)
 
 const token = res.data.token;
 const user = res.data.user || null;

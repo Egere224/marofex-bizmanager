@@ -9,18 +9,21 @@ import customersRoutes from "./modules/customers/customers.routes.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import adminRoutes from "./modules/admin/admin.routes.js";
 import paymentRoutes from "./modules/payments/payments.routes.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 
 import { errorMiddleware } from "./middleware/error.middleware.js";
 
 
 const app = express();
+const _dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // middlewares
 app.use(cors());
 app.use(express.json());
 
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/payments", paymentRoutes);

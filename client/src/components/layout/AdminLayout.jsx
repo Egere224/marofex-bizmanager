@@ -1,7 +1,8 @@
+import { Outlet } from "react-router-dom";
 import AdminSidebar from "../AdminUi/AdminSidebar";
 import AdminNavbar from "../AdminUi/AdminNavbar";
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = () => {
   return (
     <div style={{ display: "flex" }}>
       <AdminSidebar />
@@ -10,7 +11,7 @@ const AdminLayout = ({ children }) => {
         <AdminNavbar />
 
         <div style={{ padding: "20px" }}>
-          {children}
+          <Outlet /> {/* 🔥 THIS IS THE FIX */}
         </div>
       </div>
     </div>

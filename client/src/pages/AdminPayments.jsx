@@ -6,6 +6,7 @@ import { getPayments, approvePayment } from "../services/adminService";
 import { FaCheckCircle, FaClock } from "react-icons/fa";
 
 const AdminPayments = () => {
+      console.log("admin payment")
   const { darkMode } = useTheme();
   const { user } = useContext(AuthContext);
 
@@ -14,10 +15,12 @@ const AdminPayments = () => {
 
   // FETCH PAYMENTS
   const fetchPayments = async () => {
+     console.log("fetch payment")
     try {
       setLoading(true);
       const data = await getPayments();
-      setPayments(data);
+      console.log("response data:", data)
+      setPayments(data.data);
     } catch (err) {
       console.error(err);
       alert("Failed to fetch payments");
@@ -39,6 +42,7 @@ const AdminPayments = () => {
   };
 
   useEffect(() => {
+     console.log("useEffect payment")
     fetchPayments();
   }, []);
 
@@ -135,7 +139,7 @@ const AdminPayments = () => {
               {/* RECEIPT */}
               {p.proof_url && (
                 <img
-                  src={`https://marofex-bizmanager.onrender.com/${p.proof_url}`}
+                  src={p.proof_url}
                   alt="receipt"
                   style={{
                     width: "120px",
@@ -146,7 +150,7 @@ const AdminPayments = () => {
                   }}
                   onClick={() =>
                     window.open(
-                      `https://marofex-bizmanager.onrender.com/${p.proof_url}`,
+                      p.proof_url,
                       "_blank"
                     )
                   }

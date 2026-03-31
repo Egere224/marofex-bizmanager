@@ -8,6 +8,6 @@ export const getPayments = async () => {
 
 // APPROVE PAYMENT
 export const approvePayment = async (id) => {
-  const res = await api.put(`/admin/payments/${id}/approve`);
+  const res = await api.patch(`/admin/payments/${id}/approve`);
   return res.data;
 };
