@@ -76,6 +76,7 @@ function Businesses() {
   const openBusiness = async (business) => {
     try {
     const res = await getBusinessById(business.id);
+    console.log("fullBusiness:", res)
     const fullBusiness = res.data || res;
   
     setBusiness(fullBusiness);

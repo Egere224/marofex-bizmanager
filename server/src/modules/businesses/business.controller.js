@@ -30,8 +30,8 @@ export const getBusinessByIdController = asyncHandler(async (req, res) => {
   if (!business) {
     return res.status(404).json({ message: "Business not found" });
   }
+  console.log("subscription from middleware", res.subscription);
 
-  // 🔥 attach subscription from middleware
   sendSuccess(res, {
     ...business,
     subscription: req.subscription
