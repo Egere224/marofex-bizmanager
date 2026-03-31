@@ -20,10 +20,11 @@ import FadeInSection from "../components/FadeInSection";
 function Landing() {
 
 const texts = [
-  "Manage Your Business Inventory",
-  "Track Sales in Real-Time",
-  "Manage Customer Debts",
-  "Grow Your Business Faster"
+  "Effortlessly",
+  "Like a Pro",
+  "With Ease",
+  "Anywhere Around the World",
+  "In Real Time"
 ];
 
 const [index, setIndex] = useState(0);
@@ -68,9 +69,9 @@ const changingText = texts[index];
           </p>
 
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-            {changingText}
+            Manage Your Business Inventory
             <span className="block text-indigo-400">
-              Effortlessly
+              {changingText}
             </span>
           </h1>
 
@@ -107,7 +108,7 @@ const changingText = texts[index];
 
 
        {/* HERO VISUAL */}
-<div className="relative md:flex justify-center">
+<div className="relative md:mt-0 mt-10 flex justify-center">
 
   {/* dashboard image */}
   <img
