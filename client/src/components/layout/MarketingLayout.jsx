@@ -3,7 +3,7 @@ import ThemeToggle from "../ThemeToggle";
 import WhatsAppButton from "../Temp";
 import logoDark from "../../assets/logoDark.png";
 import logoLight from "../../assets/logoLight.png"
-import { FaSignInAlt, FaUserPlus, FaBlog } from "react-icons/fa";
+import { FaSignInAlt, FaUserPlus, FaBars, FaBlog } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -42,10 +42,10 @@ text-white
 dark:text-gray-900
 ">
 
-<div className="grid grid-cols-3 items-center">
+<div className="flex items-center justify-between">
 
 {/* LEFT NAV */}
-<div className="flex items-center gap-6">
+<div className="hidden md:flex items-center gap-6">
 
   {token ? (
     <>
@@ -108,7 +108,7 @@ dark:text-gray-900
 
 
 {/* CENTER LOGO */}
-<div className="flex justify-center">
+<div className="flex justify-center md:justify-center flex-1">
 
 <img
 src={logoLight}
@@ -122,10 +122,11 @@ className="hidden dark:block h-12 drop-shadow-md hover:scale-105 transition dura
 />
 
 </div>
+<div className="md:hidden"><button className="text-white dark:text-gray-900 text-2xl"><FaBars /></button></div>
 
 
 {/* RIGHT NAV */}
-<div className="flex justify-end items-center gap-6">
+<div className="hidden md:flex justify-end items-center gap-6">
 
 <Link to="/blog" className="flex items-center text-shadow-gray-50 dark:text-gray-900 gap-2 hover:text-blue-400">
 <FaBlog />
