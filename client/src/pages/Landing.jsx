@@ -23,7 +23,7 @@ const texts = [
   "Effortlessly",
   "Like a Pro",
   "With Ease",
-  "Anywhere Around the World",
+  "Anywhere Anytime!",
   "In Real Time"
 ];
 
@@ -61,10 +61,10 @@ const changingText = texts[index];
 
       {/* ================= HERO SECTION ================= */}
 
-      <section className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
+      <section className="max-w-7xl mx-auto px-5 sm:px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
         {/* HERO TEXT */}
-        <div className="text-center md:text-left">
+        <div className="text-center md:text-left space-y-6">
 
           <p className="text-shadow-gray-50 font-semibold tracking-widest mb-4">
            <small className="text-3xl md:text-4xl font-black bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -72,17 +72,17 @@ const changingText = texts[index];
 </small> BUSINESS MANAGER
           </p>
 
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
             Manage Your Business Inventory
             <span
   key={changingText}
-  className="block text-indigo-400 animate-fadeSlide"
+  className="block text-indigo-400 mt-2 animate-fadeSlide"
 >
   {changingText}
 </span>
           </h1>
 
-          <p className="text-gray-600 dark:text-gray-400 max-w-lg mb-10 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 max-w-md md:max-w-lg mx-auto md:mx-0 text-sm sm:text-base md:text-lg">
             Track stock, record sales, manage customer debts, and monitor your
             business performance all from one powerful dashboard.
           </p>
@@ -91,7 +91,7 @@ const changingText = texts[index];
 
             <Link
               to="/register"
-              className="px-8 py-3 rounded-full font-semibold text-white
+              className="w-full sm:w-auto text-center px-6 py-3 rounded-full font-semibold text-white
                bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 hover:scale-105 transition"
             >
               Start Free Trial
@@ -99,7 +99,7 @@ const changingText = texts[index];
 
             <Link
               to="/pricing"
-              className="px-8 py-3 rounded-lg border border-gray-300 dark:border-gray-600
+              className="w-full sm:w-auto text-center px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600
               hover:border-cyan-400 transition"
             >
               View Pricing
@@ -115,7 +115,7 @@ const changingText = texts[index];
 
 
        {/* HERO VISUAL */}
-<div className="relative md:mt-0 mt-10 flex justify-center">
+<div className="relative mt-10 md:mt-0 flex justify-center">
 
   {/* dashboard image */}
   <img
