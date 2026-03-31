@@ -6,7 +6,7 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 
-import about from "../assets/about"
+import about from "../assets/about.jpeg"
 
 
 import FadeInSection from "../components/FadeInSection";
