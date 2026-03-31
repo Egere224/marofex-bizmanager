@@ -58,7 +58,7 @@ export default function Pricing() {
           </h2>
 
           <p className="text-3xl font-bold mb-6">
-            ₦20,000/mo
+            ₦30,000/mo
           </p>
 
           <ul className="text-gray-600 dark:text-gray-400 space-y-2 mb-6">

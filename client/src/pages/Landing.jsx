@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import {
   FaBoxOpen,
   FaChartLine,
+  FaBolt,
+  FaRocket,
+  FaLock,
+  FaCogs,
   FaUsers,
   FaCheckCircle,
 } from "react-icons/fa";
@@ -284,7 +288,7 @@ function Landing() {
       </p>
 
       <p className="text-gray-600 dark:text-gray-300 mb-5 text-base md:text-lg leading-relaxed text-justify md:text-left">
-        From inventory tracking to sales monitoring and customer debt management, Marofex simplifies your daily workflow — giving you full visibility and control over every part of your business. Everything is built to save time, reduce errors, and improve efficiency.
+        From inventory tracking to sales monitoring and customer debt management, Marofex simplifies your daily workflow, giving you full visibility and control over every part of your business. Everything is built to save time, reduce errors, and improve efficiency.
       </p>
 
       <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed text-justify md:text-left">
@@ -353,60 +357,133 @@ function Landing() {
   </div>
 
 </section>
-<section className="max-w-7xl mx-auto px-6 py-20">
+<section className="relative max-w-7xl mx-auto px-6 py-20">
 
-  <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-    Why Choose Marofex
-  </h2>
+  {/* BACKGROUND GLOW */}
+  <div className="absolute inset-0 -z-10 blur-3xl opacity-20 bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500"></div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  {/* HEADER */}
+  <div className="text-center max-w-2xl mx-auto mb-16">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+      Why Choose{" "}
+      <span className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
+        Marofex
+      </span>
+    </h2>
 
-    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
-      <h3 className="font-semibold mb-2">Simple & Easy</h3>
-      <p className="text-gray-600 dark:text-gray-400 text-sm">
-        Get started quickly without complicated setup or training.
-      </p>
+    <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+      Everything you need to run, manage, and grow your business efficiently — all in one powerful platform.
+    </p>
+  </div>
+
+  {/* GRID */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+    {/* CARD 1 */}
+    <div className="group p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-md hover:shadow-xl dark:shadow-[0_0_20px_rgba(168,85,247,0.08)] transition duration-300">
+      <div className="flex items-start gap-4">
+        <div className="text-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-md group-hover:scale-110 transition">
+          <FaBolt />
+        </div>
+        <div>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            Simple & Easy
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Get started quickly without complicated setup or training.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
-      <h3 className="font-semibold mb-2">All-in-One Platform</h3>
-      <p className="text-gray-600 dark:text-gray-400 text-sm">
-        Manage inventory, sales, and customers from one dashboard.
-      </p>
+    {/* CARD 2 */}
+    <div className="group p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-md hover:shadow-xl dark:shadow-[0_0_20px_rgba(168,85,247,0.08)] transition duration-300">
+      <div className="flex items-start gap-4">
+        <div className="text-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-md group-hover:scale-110 transition">
+          <FaUsers />
+        </div>
+        <div>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            All-in-One Platform
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Manage inventory, sales, and customers from one dashboard.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
-      <h3 className="font-semibold mb-2">Real-Time Insights</h3>
-      <p className="text-gray-600 dark:text-gray-400 text-sm">
-        Monitor your business performance instantly.
-      </p>
+    {/* CARD 3 */}
+    <div className="group p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-md hover:shadow-xl dark:shadow-[0_0_20px_rgba(168,85,247,0.08)] transition duration-300">
+      <div className="flex items-start gap-4">
+        <div className="text-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-md group-hover:scale-110 transition">
+          <FaChartLine />
+        </div>
+        <div>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            Real-Time Insights
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Monitor your business performance instantly.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
-      <h3 className="font-semibold mb-2">Scalable</h3>
-      <p className="text-gray-600 dark:text-gray-400 text-sm">
-        Built to grow with your business.
-      </p>
+    {/* CARD 4 */}
+    <div className="group p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-md hover:shadow-xl dark:shadow-[0_0_20px_rgba(168,85,247,0.08)] transition duration-300">
+      <div className="flex items-start gap-4">
+        <div className="text-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-md group-hover:scale-110 transition">
+          <FaRocket />
+        </div>
+        <div>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            Scalable
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Built to grow with your business as you expand.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
-      <h3 className="font-semibold mb-2">Secure</h3>
-      <p className="text-gray-600 dark:text-gray-400 text-sm">
-        Your data is protected and always accessible.
-      </p>
+    {/* CARD 5 */}
+    <div className="group p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-md hover:shadow-xl dark:shadow-[0_0_20px_rgba(168,85,247,0.08)] transition duration-300">
+      <div className="flex items-start gap-4">
+        <div className="text-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-md group-hover:scale-110 transition">
+          <FaLock />
+        </div>
+        <div>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            Secure
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Your data is protected with reliable and secure systems.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div className="p-6 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow">
-      <h3 className="font-semibold mb-2">Fast Performance</h3>
-      <p className="text-gray-600 dark:text-gray-400 text-sm">
-        Smooth and responsive experience across devices.
-      </p>
+    {/* CARD 6 */}
+    <div className="group p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-md hover:shadow-xl dark:shadow-[0_0_20px_rgba(168,85,247,0.08)] transition duration-300">
+      <div className="flex items-start gap-4">
+        <div className="text-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-md group-hover:scale-110 transition">
+          <FaCogs />
+        </div>
+        <div>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            Fast Performance
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            Enjoy a smooth and responsive experience across devices.
+          </p>
+        </div>
+      </div>
     </div>
 
   </div>
 
 </section>
-
 
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
 
