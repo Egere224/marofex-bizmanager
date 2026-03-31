@@ -46,8 +46,13 @@ function MarketingLayout() {
   md:from-[#020617]
   md:via-[#1e1b4b]
   md:to-[#020617]
+  md:dark:bg-white md:dark:bg-none md:dark:shadow-lg md:dark:border md:dark:border-gray-200
 
   text-white md:dark:text-gray-900
+
+
+  text-white md:dark:text-gray-900
+  
 ">
 <div className="flex items-center justify-between">
 
