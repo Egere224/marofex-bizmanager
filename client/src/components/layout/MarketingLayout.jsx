@@ -179,7 +179,7 @@ Pricing
 {menuOpen && (
   <div className="
     md:hidden
-    fixed tpo-[64px] left-0 w-full z-[9999]
+    absolute top-full left-0 w-full z-[9999]
     bg-[#020617] dark:bg-[#020617]
     px-6 py-6
     space-y-5
