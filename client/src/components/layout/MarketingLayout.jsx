@@ -122,15 +122,28 @@ function MarketingLayout() {
 {/* CENTER LOGO */}
 <div className="flex justify-center md:justify-center flex-1">
 
+{/* LIGHT LOGO */}
 <img
-src={logoLight}
-alt="BizManager"
-className="block hover:scale-105 transition duration-300 dark:hidden h-10 md:h-12 drop-shadow-md"
+  src={logoLight}
+  alt="BizManager"
+  className="
+    h-10 md:h-12 drop-shadow-md hover:scale-105 transition duration-300
+
+    hidden dark:block         /* 📱 mobile */
+    md:block md:dark:hidden   /* 💻 desktop */
+  "
 />
+
+{/* DARK LOGO */}
 <img
-src={logoDark}
-alt="BizManager"
-className="hidden dark:block h-10 md:h-12 drop-shadow-md hover:scale-105 transition duration-300"
+  src={logoDark}
+  alt="BizManager"
+  className="
+    h-10 md:h-12 drop-shadow-md hover:scale-105 transition duration-300
+
+    block dark:hidden         /* 📱 mobile */
+    md:hidden md:dark:block   /* 💻 desktop */
+  "
 />
 
 </div>
@@ -168,38 +181,53 @@ Pricing
 {menuOpen && (
   <div className="
     md:hidden
-    absolute top-16 left-0 w-full
-    bg-[#020617]
+    absolute top-full left-0 w-full
+    bg-[#020617] dark:bg-[#020617]
     px-6 py-6
-    space-y-4
-    z-40
+    space-y-5
+    shadow-lg
   ">
 
     {/* AUTH LINKS */}
-    {token ? (
-      <>
-        {isBusinessSelection ? (
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            ← Back to Website
-          </Link>
-        ) : (
-          <Link to="/businesses" onClick={() => setMenuOpen(false)}>
-            Dashboard
-          </Link>
-        )}
+    <div className="flex flex-col gap-4 text-white text-base">
 
-        <button onClick={logout}>Logout</button>
-      </>
-    ) : (
-      <>
-        <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
-        <Link to="/register" onClick={() => setMenuOpen(false)}>Register</Link>
-      </>
-    )}
+      {token ? (
+        <>
+          {isBusinessSelection ? (
+            <Link to="/" onClick={() => setMenuOpen(false)}>
+              ← Back to Website
+            </Link>
+          ) : (
+            <Link to="/businesses" onClick={() => setMenuOpen(false)}>
+              Dashboard
+            </Link>
+          )}
+
+          <button onClick={logout} className="text-left text-red-400">
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <Link to="/login" onClick={() => setMenuOpen(false)}>
+            Login
+          </Link>
+
+          <Link to="/register" onClick={() => setMenuOpen(false)}>
+            Register
+          </Link>
+        </>
+      )}
+    </div>
+
+    {/* DIVIDER */}
+    <div className="border-t border-white/10"></div>
 
     {/* GENERAL LINKS */}
-    <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
-    <Link to="/pricing" onClick={() => setMenuOpen(false)}>Pricing</Link>
+    <div className="flex flex-col gap-4 text-white">
+      <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+      <Link to="/pricing" onClick={() => setMenuOpen(false)}>Pricing</Link>
+    </div>
 
     {/* THEME */}
     <div className="pt-4 border-t border-white/10">
@@ -208,7 +236,6 @@ Pricing
 
   </div>
 )}
-
 
 
       {/* PAGE CONTENT */}
