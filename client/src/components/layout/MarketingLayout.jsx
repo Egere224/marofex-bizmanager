@@ -6,12 +6,14 @@ import logoLight from "../../assets/logoLight.png"
 import { FaSignInAlt, FaUserPlus, FaBars, FaBlog } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useState } from "react";
 
 import { useLocation } from "react-router-dom";
 
 function MarketingLayout() {
 
   const { token, logout } = useContext(AuthContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
 
@@ -22,30 +24,35 @@ function MarketingLayout() {
       {/* NAVBAR */}
 
       <header className="
-sticky top-6 z-50
-max-w-7xl mx-auto
-px-8 py-4
-rounded-full
-shadow-xl
-backdrop-blur-xl
-border border-white/10
-shadow-lg
-bg-gradient-to-b
-from-[#020617]
-via-[#1e1b4b]
-to-[#020617]
+  sticky top-0 z-50 w-full
 
-dark:bg-white
-dark:bg-none
+  /* 📱 MOBILE LIGHT */
+  bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-500
 
-text-white
-dark:text-gray-900
+  /* 📱 MOBILE DARK (NEON PURPLE) */
+  dark:bg-gradient-to-r dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e]
+  dark:shadow-[0_0_25px_rgba(168,85,247,0.6)]
+
+  px-4 py-3
+
+  /* 💻 DESKTOP (UNCHANGED) */
+  md:top-6 md:max-w-7xl md:mx-auto
+  md:px-8 md:py-4
+  md:rounded-full
+  md:shadow-xl
+  md:border md:border-white/10
+  md:backdrop-blur-xl
+  md:bg-gradient-to-b
+  md:from-[#020617]
+  md:via-[#1e1b4b]
+  md:to-[#020617]
+
+  text-white md:dark:text-gray-900
 ">
-
 <div className="flex items-center justify-between">
 
 {/* LEFT NAV */}
-<div className="hidden md:flex items-center gap-6">
+<div className="hidden md:flex items-center gap-6 text-base">
 
   {token ? (
     <>
@@ -113,20 +120,28 @@ dark:text-gray-900
 <img
 src={logoLight}
 alt="BizManager"
-className="block hover:scale-105 transition duration-300 dark:hidden h-12 drop-shadow-md"
+className="block hover:scale-105 transition duration-300 dark:hidden h-10 md:h-12 drop-shadow-md"
 />
 <img
 src={logoDark}
 alt="BizManager"
-className="hidden dark:block h-12 drop-shadow-md hover:scale-105 transition duration-300"
+className="hidden dark:block h-10 md:h-12 drop-shadow-md hover:scale-105 transition duration-300"
 />
 
 </div>
-<div className="md:hidden"><button className="text-white dark:text-gray-900 text-2xl"><FaBars /></button></div>
+
+<div className="md:hidden">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-white text-2xl"
+  >
+    <FaBars />
+  </button>
+</div>
 
 
 {/* RIGHT NAV */}
-<div className="hidden md:flex justify-end items-center gap-6">
+<div className="hidden md:flex items-center gap-6 text-base">
 
 <Link to="/blog" className="flex items-center text-shadow-gray-50 dark:text-gray-900 gap-2 hover:text-blue-400">
 <FaBlog />
@@ -144,6 +159,50 @@ Pricing
 </div>
 
 </header>
+
+{menuOpen && (
+  <div className="
+    md:hidden
+    absolute top-16 left-0 w-full
+    bg-[#020617]
+    px-6 py-6
+    space-y-4
+    z-40
+  ">
+
+    {/* AUTH LINKS */}
+    {token ? (
+      <>
+        {isBusinessSelection ? (
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            ← Back to Website
+          </Link>
+        ) : (
+          <Link to="/businesses" onClick={() => setMenuOpen(false)}>
+            Dashboard
+          </Link>
+        )}
+
+        <button onClick={logout}>Logout</button>
+      </>
+    ) : (
+      <>
+        <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+        <Link to="/register" onClick={() => setMenuOpen(false)}>Register</Link>
+      </>
+    )}
+
+    {/* GENERAL LINKS */}
+    <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+    <Link to="/pricing" onClick={() => setMenuOpen(false)}>Pricing</Link>
+
+    {/* THEME */}
+    <div className="pt-4 border-t border-white/10">
+      <ThemeToggle />
+    </div>
+
+  </div>
+)}
 
 
 
