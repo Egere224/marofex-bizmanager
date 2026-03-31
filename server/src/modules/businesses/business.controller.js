@@ -1,4 +1,4 @@
-import { getUserBusinesses, createBusinessService, deleteBusinessService } from "./business.service.js";
+import { getUserBusinesses, createBusinessService, getBusinessByIdService, deleteBusinessService } from "./business.service.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
 import { sendSuccess } from "../../utils/response.js";
 
@@ -19,6 +19,23 @@ console.log("BODY:", req.body);
   const business = await createBusinessService(userId, name, currency);
 
   sendSuccess(res, business, "Business created successfully");
+});
+
+export const getBusinessByIdController = asyncHandler(async (req, res) => {
+  const businessId = req.params.id;
+  const userId = req.user.id;
+
+  const business = await getBusinessByIdService(businessId, userId);
+
+  if (!business) {
+    return res.status(404).json({ message: "Business not found" });
+  }
+
+  // 🔥 attach subscription from middleware
+  sendSuccess(res, {
+    ...business,
+    subscription: req.subscription
+  }, "Business fetched successfully");
 });
 
 export const deleteBusinessController = asyncHandler(async (req, res) => {

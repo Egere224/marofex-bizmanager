@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDashboardSummary } from "../services/dashboardService";
+import { useContext } from "react";
+import { BusinessContext } from "../context/BusinessContext";
+import { getBusinessById } from "../services/businessService";
 
 import {
   BarChart,
@@ -18,6 +21,8 @@ function Dashboard() {
 
   const [summary, setSummary] = useState(null);
 
+  const { setBusiness } = useContext(BusinessContext);
+
 
 
   /*
@@ -25,10 +30,20 @@ function Dashboard() {
   Load dashboard
   ------------------------------
   */
+const loadBusiness = async () => {
+  try {
+    const res = await getBusinessById(businessId);
+    console.log("business:", res)
+    setBusiness(res.data); 
+  } catch (error) {
+    console.error("Failed to fetch business", error);
+  }
+};
 
   useEffect(() => {
-    loadDashboard();
-  }, [businessId]);
+  loadDashboard();
+  loadBusiness();
+}, [businessId]);
 
 
   const loadDashboard = async () => {
@@ -49,6 +64,8 @@ function Dashboard() {
   if (!summary) {
     return <div className="p-6">Loading dashboard...</div>;
   }
+
+
 
 
 

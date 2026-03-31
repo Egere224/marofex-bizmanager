@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import {
   getBusinesses,
   createBusiness,
+  getBusinessById,
   deleteBusiness,
 } from "../services/businessService";
-
+import { useBusiness } from "../context/BusinessContext"
 function Businesses() {
   const navigate = useNavigate();
 
   const [businesses, setBusinesses] = useState([]);
+  const { setBusiness } = useBusiness();
 
   const [name, setName] = useState("");
   const [currency, setCurrency] = useState("NGN");
@@ -71,9 +73,18 @@ function Businesses() {
     }
   };
 
-  const openBusiness = (businessId) => {
-    navigate(`/businesses/${businessId}/dashboard`);
+  const openBusiness = async (business) => {
+    try {
+    const res = await getBusinessById(business.id);
+    const fullBusiness = res.data || res;
+  
+    setBusiness(fullBusiness);
+    navigate(`/businesses/${business.id}/dashboard`);
+    } catch (error) {
+      console.error(error);
+    }
   };
+  
 
   if (loading) {
     return <div className="p-6">Loading businesses...</div>;
@@ -158,7 +169,7 @@ function Businesses() {
           <div className="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0 items-start sm:items-center">
 
             <button
-              onClick={() => openBusiness(business.id)}
+              onClick={() => openBusiness(business)}
               className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded w-full sm:w-auto"
             >
               Open

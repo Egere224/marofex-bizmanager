@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 export const BusinessContext = createContext();
 
@@ -35,6 +35,8 @@ export const BusinessProvider = ({ children }) => {
     setBusiness(null);
   };
 
+  
+
   return (
     <BusinessContext.Provider
       value={{
@@ -48,4 +50,8 @@ export const BusinessProvider = ({ children }) => {
       {children}
     </BusinessContext.Provider>
   );
+};
+
+export const useBusiness = () => {
+  return useContext(BusinessContext);
 };

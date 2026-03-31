@@ -81,6 +81,19 @@ VALUES
   return business;
 };
 
+export const getBusinessByIdService = async (businessId, userId) => {
+  const result = await pool.query(
+    `
+    SELECT * FROM businesses
+    WHERE id = $1 AND user_id = $2
+    LIMIT 1
+    `,
+    [businessId, userId]
+  );
+
+  return result.rows[0];
+};
+
 export const deleteBusinessService = async (businessId, userId) => {
 
   const result = await pool.query(
