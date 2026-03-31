@@ -267,52 +267,63 @@ function Landing() {
   {/* BACKGROUND GLOW */}
   <div className="absolute inset-0 -z-10 blur-3xl opacity-20 bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500"></div>
 
-  <div className="grid md:grid-cols-2 gap-12 items-center">
+  <div className="grid md:grid-cols-2 gap-12 items-start">
 
     {/* TEXT */}
-    <div className="text-center md:text-left">
+    <div className="max-w-xl mx-auto md:mx-0 text-left">
       
-      <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+      <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
         About{" "}
         <span className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
           Marofex
         </span>
       </h2>
 
-      <p className="text-gray-600 dark:text-gray-400 mb-4 text-base md:text-lg leading-relaxed">
-        Marofex is a modern business management platform designed to help small and growing businesses stay organized, track performance, and make smarter decisions.
+      <p className="text-gray-600 dark:text-gray-300 mb-5 text-base md:text-lg leading-relaxed text-justify md:text-left">
+        Marofex is a modern business management platform designed to help small and growing businesses stay organized, track performance, and make smarter decisions in today’s fast-paced digital environment. It combines simplicity with powerful functionality, allowing business owners to manage operations without stress.
       </p>
 
-      <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
-        From inventory tracking to sales monitoring and customer debt management, Marofex simplifies your daily operations — giving you full control of your business in one place.
+      <p className="text-gray-600 dark:text-gray-300 mb-5 text-base md:text-lg leading-relaxed text-justify md:text-left">
+        From inventory tracking to sales monitoring and customer debt management, Marofex simplifies your daily workflow — giving you full visibility and control over every part of your business. Everything is built to save time, reduce errors, and improve efficiency.
+      </p>
+
+      <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed text-justify md:text-left">
+        Whether you’re running a small shop or scaling a growing enterprise, Marofex provides the tools and insights you need to grow confidently, make informed decisions, and stay ahead in a competitive market.
       </p>
 
     </div>
 
     {/* VISUAL SIDE */}
-    <div className="space-y-6">
+    <div className="space-y-8">
 
       {/* IMAGE */}
-      <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+      <div className="relative rounded-2xl overflow-hidden shadow-xl md:shadow-2xl border border-white/10">
         <img
-          src={about}// replace with your image
-          alt="Dashboard Preview"
-          className="w-full h-auto object-cover"
+          src={about}
+          alt="Business discussion"
+          className="w-full h-auto object-cover transition duration-500 hover:scale-[1.02]"
         />
+
+        {/* LIGHT MODE OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-10 dark:hidden"></div>
+
+        {/* DARK MODE OVERLAY (NEON EFFECT) */}
+        <div className="hidden dark:block absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-500/30"></div>
       </div>
 
       {/* FEATURE CARD */}
       <div className="
-        bg-white/80 dark:bg-white/5
+        bg-white/90 dark:bg-white/5
         backdrop-blur-xl
         border border-gray-200 dark:border-white/10
         rounded-2xl p-6 shadow-xl
+        dark:shadow-[0_0_25px_rgba(168,85,247,0.2)]
       ">
-        <h3 className="text-lg font-semibold mb-4">
+        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
           What You Can Do
         </h3>
 
-        <ul className="space-y-4 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+        <ul className="space-y-4 text-gray-600 dark:text-gray-300 text-sm sm:text-base">
 
           <li className="flex items-center gap-3">
             <span className="text-purple-500">✔</span>
@@ -342,7 +353,6 @@ function Landing() {
   </div>
 
 </section>
-
 <section className="max-w-7xl mx-auto px-6 py-20">
 
   <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
