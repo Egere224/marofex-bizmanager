@@ -24,6 +24,7 @@ function MarketingLayout() {
       {/* NAVBAR */}
 
       <header className="
+      relative
   sticky top-0 z-50 w-full
 
   /* 📱 MOBILE LIGHT */
@@ -181,7 +182,7 @@ Pricing
 {menuOpen && (
   <div className="
     md:hidden
-    absolute top-full left-0 w-full
+    absolute left-0 top-full w-full z-50
     bg-[#020617] dark:bg-[#020617]
     px-6 py-6
     space-y-5
