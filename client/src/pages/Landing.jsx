@@ -30,13 +30,17 @@ const texts = [
 const [index, setIndex] = useState(0);
 
 useEffect(() => {
+  let i = 0;
+
   const interval = setInterval(() => {
-    setIndex((prev) => (prev + 1) % texts.length);
-  }, 2000); // change every 2 seconds
+    i++;
+    setIndex(i % texts.length);
+  }, 2000);
 
   return () => clearInterval(interval);
 }, []);
 
+console.log("current index:", index);
 const changingText = texts[index];
   return (
     <div className="relative bg-gray-50 dark:bg-[#020617] dark:text-white transition-colors duration-300 min-h-screen overflow-hidden">
@@ -70,7 +74,7 @@ const changingText = texts[index];
 
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
             Manage Your Business Inventory
-            <span className="block text-indigo-400">
+            <span key={changingText} className="block text-indigo-400">
               {changingText}
             </span>
           </h1>
