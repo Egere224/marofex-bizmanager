@@ -274,7 +274,7 @@ function Landing() {
   <div className="grid md:grid-cols-2 gap-12 items-start">
 
     {/* TEXT */}
-    <div className="max-w-xl mx-auto md:mx-0 text-left">
+    <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left">
       
       <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
         About{" "}
@@ -283,15 +283,15 @@ function Landing() {
         </span>
       </h2>
 
-      <p className="text-gray-600 dark:text-gray-300 mb-5 text-base md:text-lg leading-relaxed text-justify md:text-left">
+      <p className="text-gray-600 dark:text-gray-300 mb-5 text-base md:text-lg leading-relaxed text-justify ">
         Marofex is a modern business management platform designed to help small and growing businesses stay organized, track performance, and make smarter decisions in today’s fast-paced digital environment. It combines simplicity with powerful functionality, allowing business owners to manage operations without stress.
       </p>
 
-      <p className="text-gray-600 dark:text-gray-300 mb-5 text-base md:text-lg leading-relaxed text-justify md:text-left">
+      <p className="text-gray-600 dark:text-gray-300 mb-5 text-base md:text-lg leading-relaxed text-justify ">
         From inventory tracking to sales monitoring and customer debt management, Marofex simplifies your daily workflow, giving you full visibility and control over every part of your business. Everything is built to save time, reduce errors, and improve efficiency.
       </p>
 
-      <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed text-justify md:text-left">
+      <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed text-justify ">
         Whether you’re running a small shop or scaling a growing enterprise, Marofex provides the tools and insights you need to grow confidently, make informed decisions, and stay ahead in a competitive market.
       </p>
 
@@ -311,8 +311,7 @@ function Landing() {
         {/* LIGHT MODE OVERLAY */}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-10 dark:hidden"></div>
 
-        {/* DARK MODE OVERLAY (NEON EFFECT) */}
-        <div className="hidden dark:block absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-500/30"></div>
+      
       </div>
 
       {/* FEATURE CARD */}
@@ -485,16 +484,59 @@ function Landing() {
 
 </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
+      <section className="relative max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 text-center">
 
-  <h2 className="text-3xl font-bold mb-6">
-    Built for Real Business Owners
+  {/* BACKGROUND GLOW */}
+  <div className="absolute inset-0 -z-10 blur-3xl opacity-20 bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500"></div>
+
+  {/* HEADING */}
+  <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-5 sm:mb-6 text-gray-900 dark:text-white leading-tight">
+    Built for{" "}
+    <span className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent">
+      Real Business Owners
+    </span>
   </h2>
 
-  <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+  {/* SUBTEXT */}
+  <p className="text-gray-600 dark:text-gray-300 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed mb-10 sm:mb-14">
     Whether you run a small shop, manage inventory, or track customer debts,
-    Marofex helps you stay organized, make better decisions, and grow faster.
+    Marofex helps you stay organized, make smarter decisions, and grow your business with confidence.
   </p>
+
+  {/* VALUE POINTS */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
+
+    {/* CARD */}
+    <div className="p-5 sm:p-6 rounded-xl bg-white/90 dark:bg-white/5 backdrop-blur border border-gray-200 dark:border-white/10 shadow-sm sm:shadow-md text-left">
+      <h3 className="font-semibold text-gray-900 dark:text-white mb-1 text-sm sm:text-base">
+        Save Time
+      </h3>
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+        Automate daily tasks and reduce manual work.
+      </p>
+    </div>
+
+    {/* CARD */}
+    <div className="p-5 sm:p-6 rounded-xl bg-white/90 dark:bg-white/5 backdrop-blur border border-gray-200 dark:border-white/10 shadow-sm sm:shadow-md text-left">
+      <h3 className="font-semibold text-gray-900 dark:text-white mb-1 text-sm sm:text-base">
+        Stay Organized
+      </h3>
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+        Keep all your business data in one place.
+      </p>
+    </div>
+
+    {/* CARD */}
+    <div className="p-5 sm:p-6 rounded-xl bg-white/90 dark:bg-white/5 backdrop-blur border border-gray-200 dark:border-white/10 shadow-sm sm:shadow-md text-left">
+      <h3 className="font-semibold text-gray-900 dark:text-white mb-1 text-sm sm:text-base">
+        Grow Faster
+      </h3>
+      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+        Make better decisions with real-time insights.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
