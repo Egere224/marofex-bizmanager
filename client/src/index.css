@@ -14,7 +14,7 @@
 }
 
 .animate-fadeSlide {
-  animation: fadeSlide 1s ease-in-out;
+  animation: fadeSlide 1.5s ease-in-out;
 }
 
 /* Remove arrows in Chrome, Safari */
