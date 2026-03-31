@@ -1,18 +1,22 @@
-import ThemeToggle from "../ThemeToggle";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import ThemeToggle from "../ThemeToggle";
+import { BusinessContext } from "../../context/BusinessContext";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+  const { business } = useContext(BusinessContext);
 
   return (
     <header className="flex items-center justify-between px-4 sm:px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
 
+      {/* LEFT SIDE */}
       <div className="flex items-center gap-15">
 
         <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
           Dashboard
         </h1>
 
-        {/* 🔥 NEW: BACK TO WEBSITE */}
         <Link
           to="/"
           className="text-lg font-semibold text-gray-600 hover:text-indigo-500 transition dark:text-shadow-white"
@@ -28,12 +32,62 @@ function Navbar() {
         </Link>
       </div>
 
-      <div className="flex items-center gap-4">
+      {/* RIGHT SIDE */}
+      <div className="flex items-center gap-4 relative">
 
         <ThemeToggle />
 
-        <div className="text-sm text-gray-600 dark:text-gray-300">
-          Account
+        {/* 🔥 ACCOUNT DROPDOWN */}
+        <div>
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-sm font-semibold text-gray-600 dark:text-gray-300"
+          >
+            Account ⌄
+          </button>
+
+          {open && (
+            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 z-50">
+
+              {/* BUSINESS INFO */}
+              <p className="font-semibold text-gray-900 dark:text-white">
+                {business?.name || "No Business Selected"}
+              </p>
+
+              <p className="text-sm text-gray-500">
+                {business?.category || "Category"}
+              </p>
+
+              {/* SUBSCRIPTION STATUS */}
+              <div className="mt-3">
+                <p className="text-sm font-semibold">Subscription:</p>
+
+                <span
+                  className={`text-xs font-bold ${
+                    business?.subscription_status === "approved"
+                      ? "text-green-500"
+                      : "text-orange-500"
+                  }`}
+                >
+                  {business?.subscription_status || "Not Subscribed"}
+                </span>
+              </div>
+
+              {/* ACTION */}
+              <Link
+                to="/subscription"
+                className="block mt-4 bg-indigo-500 text-white text-center py-2 rounded-lg hover:bg-indigo-600"
+              >
+                Manage Subscription
+              </Link>
+
+              {/* OPTIONAL LOGOUT */}
+              <button className="mt-3 w-full text-red-500 text-sm hover:underline">
+                Logout
+              </button>
+
+            </div>
+          )}
         </div>
 
       </div>

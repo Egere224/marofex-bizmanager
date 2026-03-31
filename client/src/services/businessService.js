@@ -24,7 +24,11 @@ export const createBusiness = async (data) => {
   return response.data;
 };
 
-
+// GET SINGLE BUSINESS
+export const getBusinessById = async (id) => {
+  const response = await api.get(`/businesses/${id}`);
+  return response.data;
+};
 /*
 ----------------------------------------
 Delete a business

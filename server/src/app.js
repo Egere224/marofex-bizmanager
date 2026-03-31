@@ -17,7 +17,7 @@ import { errorMiddleware } from "./middleware/error.middleware.js";
 
 
 const app = express();
-const _dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // middlewares
 app.use(cors());
