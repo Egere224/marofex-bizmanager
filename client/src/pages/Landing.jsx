@@ -72,11 +72,11 @@ const changingText = texts[index];
 </small> BUSINESS MANAGER
           </p>
 
-          <h1 className="text-3xl sm:text-3xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
             Manage Your Business Inventory
             <span
   key={changingText}
-  className="block text-indigo-400 mt-2 animate-fadeSlide sm:text-4xl"
+  className="block text-indigo-400 mt-2 animate-fadeSlide"
 >
   {changingText}
 </span>

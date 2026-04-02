@@ -10,12 +10,15 @@ function Register() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
 
 
   const handleSubmit = async (e) => {
 
     e.preventDefault();
+
+    setLoading(true)
 
     try {
 
@@ -33,6 +36,8 @@ function Register() {
     } catch (error) {
       console.error(error);
       alert(error.response?.data?.message || "Registration failed");
+    } finally {
+      setLoading(false);
     }
 
   };
@@ -93,10 +98,16 @@ function Register() {
 
 
     <button
-      className="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded transition"
-    >
-      Register
-    </button>
+  type="submit"
+  disabled={loading}
+  className={`w-full py-3 rounded text-white transition ${
+    loading
+      ? "bg-gray-400 cursor-not-allowed"
+      : "bg-blue-600 hover:bg-blue-700"
+  }`}
+>
+  {loading ? "Creating account..." : "Register"}
+</button>
 
 
     <p className="text-sm text-center mt-4 text-gray-600 dark:text-gray-300">
