@@ -94,7 +94,7 @@ function Customers() {
   return (
     <div className="min-h-screen p-4 bg-gray-50 dark:bg-gray-900">
 
-      <div className="w-full max-w-7xl mx-auto p-4 sm:p-6">
+      <div className="w-full max-w-5xl mx-auto p-4 sm:p-6">
 
         {/* Header */}
         <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
