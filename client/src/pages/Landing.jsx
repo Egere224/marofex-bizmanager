@@ -44,7 +44,7 @@ console.log("current index:", index);
 const changingText = texts[index];
   return (
     <div className="relative bg-gray-50 dark:bg-[#020617] dark:text-white transition-colors duration-300 min-h-screen overflow-hidden">
-
+      <div className="max-w-7xl mx-auto px-6">
       {/* ================= DARK MODE NEON BACKGROUND ================= */}
       <div className="hidden dark:block absolute inset-0 pointer-events-none">
 
@@ -645,7 +645,7 @@ const changingText = texts[index];
         </div>
 
       </footer>
-
+      </div>
     </div>
   );
 }
