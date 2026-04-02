@@ -11,7 +11,7 @@ function DashboardLayout() {
       {/* SIDEBAR */}
       <div
         className={`
-          fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 z-50
+          fixed top-0 left-0 h-full bg-white w-[75%] sm:w-64 dark:bg-gray-800 z-50
           transform ${open ? "translate-x-0" : "-translate-x-full"}
           transition-transform duration-300
           md:translate-x-0 md:static
@@ -19,6 +19,13 @@ function DashboardLayout() {
       >
         <Sidebar closeSidebar={() => setOpen(false)} />
       </div>
+      {/* 🔥 BACKDROP (CLICK TO CLOSE) */}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 bg-black/30 z-40 md:hidden"
+        />
+      )}
 
       {/* Main content */}
       <div className="flex flex-col flex-1">

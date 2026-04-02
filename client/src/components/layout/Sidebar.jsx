@@ -1,6 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ closeSidebar }) {
 
   const { businessId } = useParams();
 
@@ -12,8 +12,14 @@ function Sidebar() {
     }`;
 
   return (
-    <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen p-4">
-
+    <aside className="bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4">
+       {/* 🔥 CLOSE BUTTON (ONLY MOBILE) */}
+      <button
+        onClick={closeSidebar}
+        className="md:hidden mb-6 text-gray-700 dark:text-white"
+      >
+        ✕ Close
+      </button>
       <h2 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
         BizManager
       </h2>
@@ -23,6 +29,7 @@ function Sidebar() {
         <NavLink
           to={`/businesses/${businessId}/dashboard`}
           className={linkClass}
+          onClick={closeSidebar}
         >
           Dashboard
         </NavLink>
@@ -30,6 +37,7 @@ function Sidebar() {
         <NavLink
           to={`/businesses/${businessId}/products`}
           className={linkClass}
+          onClick={closeSidebar}
         >
           Products
         </NavLink>
@@ -37,6 +45,7 @@ function Sidebar() {
         <NavLink
           to={`/businesses/${businessId}/sales`}
           className={linkClass}
+          onClick={closeSidebar}
         >
           Sales
         </NavLink>
@@ -44,6 +53,7 @@ function Sidebar() {
         <NavLink
           to={`/businesses/${businessId}/customers`}
           className={linkClass}
+          onClick={closeSidebar}
         >
           Customers
         </NavLink>
@@ -51,6 +61,7 @@ function Sidebar() {
          <NavLink
           to={`/businesses/${businessId}/debtors`}
           className={linkClass}
+          onClick={closeSidebar}
         >
           Debtors
         </NavLink>
