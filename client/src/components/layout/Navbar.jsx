@@ -12,7 +12,7 @@ function Navbar({ toggleSidebar }) {
     <header className="flex items-center justify-between px-4 sm:px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
 
       {/* LEFT SIDE */}
-      <div className="flex items-center  gap-4 md:gap-15">
+      <div className="flex items-center  gap-4 md:gap-8">
 
         <button
   onClick={toggleSidebar}
