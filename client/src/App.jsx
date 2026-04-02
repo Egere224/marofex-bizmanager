@@ -16,6 +16,8 @@ import Customers from "./pages/Customers";
 import Debtors from "./pages/Debtors";
 import CustomerDebts from "./pages/CustomerDebts";
 import AdminPayments from "./pages/AdminPayments";
+import AdminBusinesses from "./pages/AdminBusinesses";
+import AdminUsers from "./pages/AdminUsers";
 import AdminLayout from "./components/layout/AdminLayout";
 
 import DashboardLayout from "./components/layout/DashboardLayout";
@@ -70,8 +72,8 @@ function App() {
   >
     <Route path="payments" element={<AdminPayments />} />
     {/* future admin routes */}
-    <Route path="users" element={<div>Users</div>} />
-    <Route path="businesses" element={<div>Businesses</div>} />
+    <Route path="users" element={<AdminUsers />} />
+    <Route path="businesses" element={<AdminBusinesses />} />
   </Route>
 
       </Routes>

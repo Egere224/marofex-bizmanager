@@ -6,20 +6,17 @@ import { getPayments, approvePayment } from "../services/adminService";
 import { FaCheckCircle, FaClock } from "react-icons/fa";
 
 const AdminPayments = () => {
-      console.log("admin payment")
   const { darkMode } = useTheme();
   const { user } = useContext(AuthContext);
 
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [approvingId, setApprovingId] = useState(null); // ✅ NEW
 
-  // FETCH PAYMENTS
   const fetchPayments = async () => {
-     console.log("fetch payment")
     try {
       setLoading(true);
       const data = await getPayments();
-      console.log("response data:", data)
       setPayments(data.data);
     } catch (err) {
       console.error(err);
@@ -29,26 +26,27 @@ const AdminPayments = () => {
     }
   };
 
-  // APPROVE PAYMENT
   const handleApprove = async (id) => {
     try {
+      setApprovingId(id); // ✅ track button loading
+
       await approvePayment(id);
-      alert("Payment Approved ✅");
-      fetchPayments(); // refresh
+
+      fetchPayments();
     } catch (err) {
       console.error(err);
       alert("Approval failed");
+    } finally {
+      setApprovingId(null);
     }
   };
 
   useEffect(() => {
-     console.log("useEffect payment")
     fetchPayments();
   }, []);
 
-  // 🎨 THEME
   const theme = {
-    background: darkMode ? "#0f172a" : "#f8fafc",
+    background: darkMode ? "#0f172a" : "#f1f5f9",
     card: darkMode ? "#1e293b" : "#ffffff",
     text: darkMode ? "#e2e8f0" : "#0f172a",
     border: darkMode ? "#334155" : "#e2e8f0",
@@ -58,83 +56,74 @@ const AdminPayments = () => {
     <div
       style={{
         background: theme.background,
-        color: theme.text,
         minHeight: "100vh",
-        padding: "20px",
-        transition: "0.3s",
+        padding: "30px",
       }}
     >
-      {/* HEADER */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "20px",
-        }}
-      >
-        <h2>💳 Admin Payments</h2>
-        <ThemeToggle />
-      </div>
+      {/* CONTAINER */}
+      <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+        
+        {/* HEADER */}
+        <div style={{ marginBottom: "25px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "bold" }}>
+            💳 Admin Payments
+          </h2>
+          <p style={{ opacity: 0.7 }}>Manage and approve payments</p>
+        </div>
 
-      {/* LOADING */}
-      {loading && <p>Loading payments...</p>}
+        {/* LOADING */}
+        {loading && <p>Loading payments...</p>}
 
-      {/* EMPTY */}
-      {!loading && payments.length === 0 && <p>No payments found</p>}
+        {/* EMPTY */}
+        {!loading && payments.length === 0 && <p>No payments found</p>}
 
-      {/* LIST */}
-      <div style={{ display: "grid", gap: "15px" }}>
-        {payments.map((p) => (
-          <div
-            key={p.id}
-            style={{
-              background: theme.card,
-              border: `1px solid ${theme.border}`,
-              padding: "15px",
-              borderRadius: "10px",
-              boxShadow: darkMode
-                ? "0 0 10px rgba(0,0,0,0.5)"
-                : "0 0 10px rgba(0,0,0,0.05)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            {/* LEFT */}
-            <div>
-              <p><b>User:</b> {p.full_name}</p>
-              <p><b>Email:</b> {p.email}</p>
-              <p><b>Business:</b> {p.business_name}</p>
-              <p><b>Amount:</b> ₦{p.amount}</p>
-
-              {/* STATUS */}
-              <p
+        {/* LIST */}
+        <div style={{ display: "grid", gap: "20px" }}>
+          {payments.map((p) => (
+            <div
+              key={p.id}
+              style={{
+                background: theme.card,
+                border: `1px solid ${theme.border}`,
+                padding: "20px",
+                borderRadius: "12px",
+                boxShadow: darkMode
+                  ? "0 4px 20px rgba(0,0,0,0.4)"
+                  : "0 4px 20px rgba(0,0,0,0.05)",
+              }}
+            >
+              {/* TOP ROW */}
+              <div
                 style={{
-                  marginTop: "8px",
                   display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
+                  justifyContent: "space-between",
+                  marginBottom: "10px",
                 }}
               >
-                <b>Status:</b>
+                <div>
+                  <h4 style={{ margin: 0 }}>{p.full_name}</h4>
+                  <small style={{ opacity: 0.6 }}>{p.email}</small>
+                </div>
 
-                {p.status === "approved" ? (
-                  <>
-                    <FaCheckCircle color="limegreen" />
+                {/* STATUS BADGE */}
+                <div>
+                  {p.status === "approved" ? (
                     <span style={{ color: "limegreen", fontWeight: "bold" }}>
-                      Approved
+                      ✔ Approved
                     </span>
-                  </>
-                ) : (
-                  <>
-                    <FaClock color="orange" />
+                  ) : (
                     <span style={{ color: "orange", fontWeight: "bold" }}>
-                      Pending
+                      ⏳ Pending
                     </span>
-                  </>
-                )}
-              </p>
+                  )}
+                </div>
+              </div>
+
+              {/* DETAILS */}
+              <div style={{ marginBottom: "12px" }}>
+                <p><b>Business:</b> {p.business_name}</p>
+                <p><b>Amount:</b> ₦{p.amount}</p>
+              </div>
 
               {/* RECEIPT */}
               {p.proof_url && (
@@ -142,46 +131,44 @@ const AdminPayments = () => {
                   src={p.proof_url}
                   alt="receipt"
                   style={{
-                    width: "120px",
-                    marginTop: "10px",
-                    borderRadius: "6px",
+                    width: "140px",
+                    borderRadius: "8px",
                     cursor: "pointer",
                     border: `1px solid ${theme.border}`,
+                    marginBottom: "12px",
                   }}
-                  onClick={() =>
-                    window.open(
-                      p.proof_url,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => window.open(p.proof_url, "_blank")}
                 />
               )}
-            </div>
 
-            {/* RIGHT */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              {/* ACTION */}
               {user?.role === "admin" && p.status === "pending" && (
                 <button
                   onClick={() => handleApprove(p.id)}
+                  disabled={approvingId === p.id}
                   style={{
-                    padding: "8px 14px",
-                    background: darkMode ? "#22c55e" : "#16a34a",
+                    padding: "10px 16px",
+                    background:
+                      approvingId === p.id
+                        ? "#94a3b8"
+                        : darkMode
+                        ? "#22c55e"
+                        : "#16a34a",
                     color: "white",
                     border: "none",
                     borderRadius: "6px",
-                    cursor: "pointer",
+                    cursor:
+                      approvingId === p.id ? "not-allowed" : "pointer",
                   }}
                 >
-                  Approve
+                  {approvingId === p.id
+                    ? "Approving..."
+                    : "Approve Payment"}
                 </button>
               )}
-
-              {p.status === "approved" && (
-                <span style={{ color: "limegreen" }}>✔ Approved</span>
-              )}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
