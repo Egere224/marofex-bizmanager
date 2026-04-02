@@ -86,7 +86,6 @@ function MarketingLayout() {
         </Link>
 
         <button
-          onClick={logout}
           className="text-shadow-gray-50 dark:text-gray-900 hover:text-red-400"
         >
           Logout
