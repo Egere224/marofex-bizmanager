@@ -12,7 +12,7 @@ function Sidebar() {
     }`;
 
   return (
-    <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen p-4 hidden sm:block">
+    <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen p-4">
 
       <h2 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
         BizManager

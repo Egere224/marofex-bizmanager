@@ -618,33 +618,7 @@ const changingText = texts[index];
 
 
 
-      {/* ================= FOOTER ================= */}
 
-      <footer className="bg-gray-900 text-gray-400 py-10">
-
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-
-          <p>© {new Date().getFullYear()} BizManager</p>
-
-          <div className="flex gap-6">
-
-            <Link to="/blog" className="hover:text-white">
-              Blog
-            </Link>
-
-            <Link to="/pricing" className="hover:text-white">
-              Pricing
-            </Link>
-
-            <Link to="/login" className="hover:text-white">
-              Login
-            </Link>
-
-          </div>
-
-        </div>
-
-      </footer>
       </div>
     </div>
   );

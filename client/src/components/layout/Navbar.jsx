@@ -21,13 +21,13 @@ function Navbar({ toggleSidebar }) {
   <FiMenu />
 </button>
 
-        <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h1 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white">
           Dashboard
         </h1>
 
         <Link
           to="/"
-          className="text-lg font-semibold text-gray-600 hover:text-indigo-500 transition dark:text-shadow-white"
+          className="text-sm md:text-lg font-semibold text-gray-600 hover:text-indigo-500 transition dark:text-shadow-white"
         >
           ← Back to Website
         </Link>
