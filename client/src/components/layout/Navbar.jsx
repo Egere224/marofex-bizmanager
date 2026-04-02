@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle";
 import { BusinessContext } from "../../context/BusinessContext";
 import { FiMenu } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa"
 
 function Navbar({ toggleSidebar }) {
   const [open, setOpen] = useState(false);
@@ -51,7 +52,7 @@ function Navbar({ toggleSidebar }) {
             onClick={() => setOpen(!open)}
             className="text-sm md:text-lg font-semibold text-gray-600 dark:text-gray-300"
           >
-            Account ⌄
+           <FaUserCircle className="text-xl md:text-2xl" />
           </button>
 
           {open && (
