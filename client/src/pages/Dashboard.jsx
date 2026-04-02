@@ -72,6 +72,7 @@ const loadBusiness = async () => {
   return (
 
     <div className="p-4 sm:p-6 space-y-8 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors">
+     <div className="w-full max-w-md sm:max-w-lg md:max-w-3xl mx-auto p-4 sm:p-6">
 
   {/* Page title */}
 
@@ -208,7 +209,7 @@ const loadBusiness = async () => {
     </ResponsiveContainer>
 
   </div>
-
+ </div>
 </div>
 
   );
