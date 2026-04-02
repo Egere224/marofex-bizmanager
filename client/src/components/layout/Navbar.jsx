@@ -12,7 +12,7 @@ function Navbar({ toggleSidebar }) {
     <header className="flex items-center justify-between px-4 sm:px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
 
       {/* LEFT SIDE */}
-      <div className="flex items-center  gap-2 sm:gap-4 md:gap-6">
+      <div className="flex items-center  gap-2 sm:gap-3 md:gap-6">
 
         <button
   onClick={toggleSidebar}
@@ -21,20 +21,20 @@ function Navbar({ toggleSidebar }) {
   <FiMenu />
 </button>
 
-        <h1 className="text-sm md:text-lg font-semibold truncate text-gray-900 dark:text-white">
+        <h1 className="text-sm sm:text-base md:text-lg font-semibold truncate text-gray-900 dark:text-white">
           Dashboard
         </h1>
 
         <Link
           to="/"
-          className="text-sm md:text-lg font-semibold truncate text-gray-600 hover:text-indigo-500 transition dark:text-shadow-white"
+          className="text-sm sm:text-base md:text-lg font-semibold truncate text-gray-600 hover:text-indigo-500 transition dark:text-shadow-white"
         >
           Home
         </Link>
 
         <Link
           to="/businesses"
-          className="text-sm md:text-lg font-semibold truncate text-gray-600 hover:text-indigo-500 transition dark:text-shadow-white"
+          className="text-sm sm:text-base md:text-lg font-semibold truncate text-gray-600 hover:text-indigo-500 transition dark:text-shadow-white"
         >
           Switch Business
         </Link>
@@ -90,7 +90,9 @@ function Navbar({ toggleSidebar }) {
               </Link>
 
               {/* OPTIONAL LOGOUT */}
-              <button className="mt-3 w-full text-red-500 text-sm hover:underline">
+              <button
+              onClick={logout}
+               className="mt-3 w-full text-red-500 text-sm hover:underline">
                 Logout
               </button>
 

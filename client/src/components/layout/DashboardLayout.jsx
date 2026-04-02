@@ -28,7 +28,7 @@ function DashboardLayout() {
       )}
 
       {/* Main content */}
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 w-full">
 
         {/* NAVBAR */}
         <Navbar toggleSidebar={() => setOpen(!open)} />
