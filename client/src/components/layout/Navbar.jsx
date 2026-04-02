@@ -2,8 +2,9 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ThemeToggle from "../ThemeToggle";
 import { BusinessContext } from "../../context/BusinessContext";
+import { FiMenu } from "react-icons/fi";
 
-function Navbar() {
+function Navbar({ toggleSidebar }) {
   const [open, setOpen] = useState(false);
   const { business } = useContext(BusinessContext);
 
@@ -11,7 +12,14 @@ function Navbar() {
     <header className="flex items-center justify-between px-4 sm:px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
 
       {/* LEFT SIDE */}
-      <div className="flex items-center gap-15">
+      <div className="flex items-center  gap-4 md:gap-15">
+
+        <button
+  onClick={toggleSidebar}
+  className="md:hidden text-xl"
+>
+  <FiMenu />
+</button>
 
         <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
           Dashboard

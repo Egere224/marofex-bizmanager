@@ -59,7 +59,7 @@ export const registerUser = async (full_name, email, password, phone) => {
 export const loginUser = async (email, password) => {
 
   const result = await pool.query(
-    "SELECT * FROM users WHERE email = $1",
+    "SELECT * FROM users WHERE email = $1 AND is_deleted = false",
     [email]
   );
 
@@ -68,6 +68,9 @@ export const loginUser = async (email, password) => {
   }
 
   const user = result.rows[0];
+  if (user.is_deleted) {
+    throw new AppError("Account has been deleted", 403);
+  }
 
   const isMatch = await bcrypt.compare(password, user.password_hash);
 
