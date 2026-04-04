@@ -10,7 +10,7 @@ function Navbar({ toggleSidebar }) {
   const { business } = useContext(BusinessContext);
 
   return (
-    <header className="flex items-center justify-between px-4 sm:px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <header className="relative z-50 flex items-center justify-between px-4 sm:px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
 
       {/* LEFT SIDE */}
       <div className="flex items-center  gap-2 sm:gap-3 md:gap-6">
@@ -50,6 +50,7 @@ function Navbar({ toggleSidebar }) {
         <div>
           <button
             onClick={() => setOpen(!open)}
+            type="button"
             className="text-sm md:text-lg font-semibold text-gray-600 dark:text-gray-300"
           >
            <FaUserCircle className="text-xl md:text-2xl" />
