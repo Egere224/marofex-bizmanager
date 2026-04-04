@@ -22,7 +22,7 @@ console.log("BODY:", req.body);
 });
 
 export const getBusinessByIdController = asyncHandler(async (req, res) => {
-  const businessId = req.params.id;
+  const businessId = req.params.id || req.params.businessId;
   const userId = req.user.id;
 
   const business = await getBusinessByIdService(businessId, userId);
@@ -32,12 +32,15 @@ export const getBusinessByIdController = asyncHandler(async (req, res) => {
     return res.status(404).json({ message: "Business not found" });
   }
 
-  sendSuccess(res, business, "Business fetched successfully");
+  sendSuccess(res, {
+    business, 
+    subscription: req.subscription },
+     "Business fetched successfully");
 });
 
 export const deleteBusinessController = asyncHandler(async (req, res) => {
 
-  const businessId = req.params.id;
+  const businessId = req.params.id || req.params.businessId;
   const userId = req.user.id;
 
   const deleted = await deleteBusinessService(businessId, userId);
