@@ -80,9 +80,9 @@ function Businesses() {
     const res = await getBusinessById(business.id);
     console.log("fullBusiness:", res)
     const payload = res.data.data || res.data;
-
+const businessData = payload.business || payload;
 setBusiness({
-  ...payload.business,
+  ...businessData,
   subscription: payload.subscription,
 });
     navigate(`/businesses/${business.id}/dashboard`);

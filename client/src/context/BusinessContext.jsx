@@ -18,9 +18,9 @@ export const BusinessProvider = ({ children }) => {
       try {
         const res = await getBusinessById(parsed.id);
         const payload = res.data.data || res.data;
-
+const businessData = payload.business || payload;
 setBusiness({
-  ...payload.business,
+  ...businessData,
   subscription: payload.subscription,
 });
       } catch (err) {
@@ -52,8 +52,9 @@ setBusiness({
     const res = await getBusinessById(data.id);
      console.log("business info", res)
   const payload = res.data.data || res.data;
+  const businessData = payload.business || payload;
 setBusiness({
-  ...payload.business,
+  ...businessData,
   subscription: payload.subscription,
 }); // ✅ full data with subscription
   } catch (err) {
