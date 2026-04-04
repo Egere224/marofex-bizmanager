@@ -93,7 +93,6 @@ function Navbar({ toggleSidebar }) {
 
               {/* OPTIONAL LOGOUT */}
               <button
-              onClick={logout}
                className="mt-3 w-full text-red-500 text-sm hover:underline">
                 Logout
               </button>
