@@ -100,6 +100,7 @@ export const getBusinessByIdService = async (businessId, userId) => {
   );
 
   return result.rows[0];
+  
 };
 
 

@@ -2,7 +2,7 @@ import pool from "../config/db.js";
 
 export const checkSubscription = async (req, res, next) => {
   try {
-    const businessId = req.params.businessId;
+    const businessId = req.params.businessId || req.params.id;
 
     const result = await pool.query(
       `
