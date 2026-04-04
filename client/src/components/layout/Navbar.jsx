@@ -6,6 +6,10 @@ import { FiMenu } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa"
 
 function Navbar({ toggleSidebar }) {
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  }
   const [open, setOpen] = useState(false);
   const { business } = useContext(BusinessContext);
 
@@ -86,6 +90,7 @@ function Navbar({ toggleSidebar }) {
               {/* ACTION */}
               <Link
                 to="/subscription"
+                type="button"
                 className="block mt-4 bg-indigo-500 text-white text-center py-2 rounded-lg hover:bg-indigo-600"
               >
                 Manage Subscription
@@ -93,6 +98,7 @@ function Navbar({ toggleSidebar }) {
 
               {/* OPTIONAL LOGOUT */}
               <button
+               onClick={logout}
                className="mt-3 w-full text-red-500 text-sm hover:underline">
                 Logout
               </button>
