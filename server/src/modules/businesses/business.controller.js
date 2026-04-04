@@ -26,16 +26,13 @@ export const getBusinessByIdController = asyncHandler(async (req, res) => {
   const userId = req.user.id;
 
   const business = await getBusinessByIdService(businessId, userId);
-
+  console.log("user id", userId);
+  console.log("business id", businessId);
   if (!business) {
     return res.status(404).json({ message: "Business not found" });
   }
-  console.log("subscription from middleware", req.subscription);
 
-  sendSuccess(res, {
-    ...business,
-    subscription: req.subscription
-  }, "Business fetched successfully");
+  sendSuccess(res, business, "Business fetched successfully");
 });
 
 export const deleteBusinessController = asyncHandler(async (req, res) => {

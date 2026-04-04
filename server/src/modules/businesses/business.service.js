@@ -84,8 +84,16 @@ VALUES
 export const getBusinessByIdService = async (businessId, userId) => {
   const result = await pool.query(
     `
-    SELECT * FROM businesses
-    WHERE id = $1 AND user_id = $2
+    SELECT 
+      b.id,
+      b.name,
+      b.currency,
+      s.status,
+      s.end_date
+    FROM businesses b
+    LEFT JOIN subscriptions s 
+      ON b.id = s.business_id
+    WHERE b.id = $1 AND b.user_id = $2
     LIMIT 1
     `,
     [businessId, userId]
@@ -93,6 +101,7 @@ export const getBusinessByIdService = async (businessId, userId) => {
 
   return result.rows[0];
 };
+
 
 export const deleteBusinessService = async (businessId, userId) => {
 
