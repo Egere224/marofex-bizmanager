@@ -48,6 +48,7 @@ export const BusinessProvider = ({ children }) => {
   const selectBusiness = async (data) => {
   try {
     const res = await getBusinessById(data.id);
+     console.log("business info", res.data)
     setBusiness(res.data); // ✅ full data with subscription
   } catch (err) {
     console.error("Failed to select business", err);
