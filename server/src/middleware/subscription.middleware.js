@@ -7,10 +7,13 @@ export const checkSubscription = async (req, res, next) => {
     const result = await pool.query(
       `
       SELECT status, end_date
-      FROM subscriptions
-      WHERE business_id = $1
-      ORDER BY created_at DESC
-      LIMIT 1
+FROM subscriptions
+WHERE business_id = $1
+AND status IN ('active', 'trial')
+AND end_date IS NOT NULL
+AND end_date > NOW()
+ORDER BY created_at DESC
+LIMIT 1
       `,
       [businessId]
     );
