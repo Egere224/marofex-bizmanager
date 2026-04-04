@@ -17,7 +17,12 @@ export const BusinessProvider = ({ children }) => {
 
       try {
         const res = await getBusinessById(parsed.id);
-        setBusiness(res);
+        const payload = res.data.data || res.data;
+
+setBusiness({
+  ...payload.business,
+  subscription: payload.subscription,
+});
       } catch (err) {
         console.error("Failed to load business", err);
 
@@ -46,7 +51,11 @@ export const BusinessProvider = ({ children }) => {
   try {
     const res = await getBusinessById(data.id);
      console.log("business info", res)
-    setBusiness(res); // ✅ full data with subscription
+  const payload = res.data.data || res.data;
+setBusiness({
+  ...payload.business,
+  subscription: payload.subscription,
+}); // ✅ full data with subscription
   } catch (err) {
     console.error("Failed to select business", err);
   }

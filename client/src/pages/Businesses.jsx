@@ -7,6 +7,8 @@ import {
   deleteBusiness,
 } from "../services/businessService";
 import { useBusiness } from "../context/BusinessContext"
+
+
 function Businesses() {
   const navigate = useNavigate();
 
@@ -75,9 +77,14 @@ function Businesses() {
 
   const openBusiness = async (business) => {
     try {
-    const fullBusiness = await getBusinessById(business.id);
-    console.log("fullBusiness:", fullBusiness)
-    setBusiness(fullBusiness);
+    const res = await getBusinessById(business.id);
+    console.log("fullBusiness:", res)
+    const payload = res.data.data || res.data;
+
+setBusiness({
+  ...payload.business,
+  subscription: payload.subscription,
+});
     navigate(`/businesses/${business.id}/dashboard`);
     } catch (error) {
       console.error(error);
