@@ -63,7 +63,7 @@ function Navbar({ toggleSidebar }) {
 
               {/* BUSINESS INFO */}
               <p className="font-semibold text-gray-900 dark:text-white">
-                {business?.name || "No Business Selected"}
+                {business?.business?.name || "No Business Selected"}
               </p>
 
 
