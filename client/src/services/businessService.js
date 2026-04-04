@@ -27,7 +27,11 @@ export const createBusiness = async (data) => {
 // GET SINGLE BUSINESS
 export const getBusinessById = async (id) => {
   const response = await api.get(`/businesses/${id}`);
-  return response.data;
+ const payload = response.data.data || response.data;
+  return {
+    ...payload.business,
+    subscription: payload.subscription
+  };
 };
 /*
 ----------------------------------------

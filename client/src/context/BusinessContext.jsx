@@ -16,11 +16,8 @@ export const BusinessProvider = ({ children }) => {
       const parsed = JSON.parse(savedBusiness);
 
       try {
-        // 🔥 Fetch fresh data from backend
         const res = await getBusinessById(parsed.id);
-
-        // ✅ Save fresh business (with subscription)
-        setBusiness(res.data);
+        setBusiness(res);
       } catch (err) {
         console.error("Failed to load business", err);
 
@@ -48,8 +45,8 @@ export const BusinessProvider = ({ children }) => {
   const selectBusiness = async (data) => {
   try {
     const res = await getBusinessById(data.id);
-     console.log("business info", res.data)
-    setBusiness(res.data); // ✅ full data with subscription
+     console.log("business info", res)
+    setBusiness(res); // ✅ full data with subscription
   } catch (err) {
     console.error("Failed to select business", err);
   }

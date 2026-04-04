@@ -73,7 +73,7 @@ function Navbar({ toggleSidebar }) {
 
                 <span
                   className={`text-xs font-bold ${
-                    business?.subscription?.status === "approved"
+                    ["active", "trial"].includes(business?.subscription?.status)
                       ? "text-green-500"
                       : "text-orange-500"
                   }`}

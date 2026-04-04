@@ -75,10 +75,8 @@ function Businesses() {
 
   const openBusiness = async (business) => {
     try {
-    const res = await getBusinessById(business.id);
-    console.log("fullBusiness:", res)
-    const fullBusiness = res.data || res;
-  
+    const fullBusiness = await getBusinessById(business.id);
+    console.log("fullBusiness:", fullBusiness)
     setBusiness(fullBusiness);
     navigate(`/businesses/${business.id}/dashboard`);
     } catch (error) {
