@@ -11,8 +11,6 @@ export const getUserBusinessesController = asyncHandler(async (req, res) => {
 });
 
 export const createBusinessController = asyncHandler(async (req, res) => {
-  console.log("USER:", req.user);
-console.log("BODY:", req.body);
   const userId = req.user.id;
   const { name, currency } = req.body;
 
@@ -22,12 +20,10 @@ console.log("BODY:", req.body);
 });
 
 export const getBusinessByIdController = asyncHandler(async (req, res) => {
-  const businessId = req.params.id || req.params.businessId;
+  const businessId = req.params.businessId;
   const userId = req.user.id;
 
   const business = await getBusinessByIdService(businessId, userId);
-  console.log("user id", userId);
-  console.log("business id", businessId);
   if (!business) {
     return res.status(404).json({ message: "Business not found" });
   }
@@ -40,7 +36,7 @@ export const getBusinessByIdController = asyncHandler(async (req, res) => {
 
 export const deleteBusinessController = asyncHandler(async (req, res) => {
 
-  const businessId = req.params.id || req.params.businessId;
+  const businessId = req.params.businessId;
   const userId = req.user.id;
 
   const deleted = await deleteBusinessService(businessId, userId);

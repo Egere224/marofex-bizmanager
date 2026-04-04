@@ -8,12 +8,12 @@ const router = express.Router();
 router.get("/", authMiddleware, getUserBusinessesController);
 router.post("/", authMiddleware, createBusinessController);
 router.get(
-  "/:id",
+  "/:businessId",
   authMiddleware,
   checkSubscription,   
   getBusinessByIdController
 );
 
-router.delete("/:id",authMiddleware, deleteBusinessController);
+router.delete("/:businessId",authMiddleware, deleteBusinessController);
 
 export default router;
