@@ -76,12 +76,12 @@ function Navbar({ toggleSidebar }) {
 
                 <span
                   className={`text-xs font-bold ${
-                    business?.subscription_status === "approved"
+                    business?.subscription === "approved"
                       ? "text-green-500"
                       : "text-orange-500"
                   }`}
                 >
-                  {business?.subscription_status || "Not Subscribed"}
+                  {business?.subscription || "Not Subscribed"}
                 </span>
               </div>
 
