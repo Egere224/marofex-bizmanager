@@ -4,12 +4,10 @@ import ThemeToggle from "../ThemeToggle";
 import { BusinessContext } from "../../context/BusinessContext";
 import { FiMenu } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa"
+import { AuthContext } from "../../context/AuthContext"
 
 function Navbar({ toggleSidebar }) {
-  const logout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
-  }
+  const { logout } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const { business } = useContext(BusinessContext);
 
