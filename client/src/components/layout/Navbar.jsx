@@ -66,9 +66,6 @@ function Navbar({ toggleSidebar }) {
                 {business?.name || "No Business Selected"}
               </p>
 
-              <p className="text-sm text-gray-500">
-                {business?.category || "Category"}
-              </p>
 
               {/* SUBSCRIPTION STATUS */}
               <div className="mt-3">
@@ -76,12 +73,12 @@ function Navbar({ toggleSidebar }) {
 
                 <span
                   className={`text-xs font-bold ${
-                    business?.subscription === "approved"
+                    business?.subscription?.status === "approved"
                       ? "text-green-500"
                       : "text-orange-500"
                   }`}
                 >
-                  {business?.subscription || "Not Subscribed"}
+                  {business?.subscription?.status || "Not Subscribed"}
                 </span>
               </div>
 
