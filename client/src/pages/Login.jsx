@@ -35,16 +35,9 @@ const token = res.data.token;
 const user = res.data.user || null;
 
 login(user, token);
-     if (user?.role === "admin") {
-      navigate("/admin/payments");
-    } else {
-      navigate("/businesses");
-    }
 
     } catch (error) {
-
       console.error(error);
-
       alert(error.response?.data?.message || "Login failed");
 
     }
@@ -91,6 +84,7 @@ login(user, token);
 
 
     <button
+    type="submit"
       className="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded transition"
     >
       Login

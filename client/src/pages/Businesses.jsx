@@ -42,10 +42,11 @@ function Businesses() {
     if (!name) return;
 
     try {
-     const newBusiness = await createBusiness({
+     const res = await createBusiness({
         name,
         currency,
       });
+      const newBusiness = res.data?.data || res.data;
 
       setBusinesses((prev) => [newBusiness, ...prev]);
 
@@ -85,7 +86,7 @@ setBusiness({
   ...businessData,
   subscription: payload.subscription,
 });
-    navigate(`/businesses/${business.id}/dashboard`);
+    navigate(`/businesses/${business.id}`);
     } catch (error) {
       console.error(error);
     }

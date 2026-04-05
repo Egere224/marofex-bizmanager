@@ -14,6 +14,6 @@ router.get(
   getBusinessByIdController
 );
 
-router.delete("/:businessId",authMiddleware, deleteBusinessController);
+router.delete("/:businessId", authMiddleware, deleteBusinessController);
 
 export default router;
