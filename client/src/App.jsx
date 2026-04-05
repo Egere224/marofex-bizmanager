@@ -45,7 +45,7 @@ function App() {
 
         {/* Protected dashboard */}
         <Route
-          path="/businesses/:businessId/dashboard"
+          path="/businesses/:businessId"
           element={
             <ProtectedRoute>
               <DashboardLayout />
