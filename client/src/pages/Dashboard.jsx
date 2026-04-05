@@ -41,6 +41,7 @@ const loadBusiness = async () => {
 };
 
   useEffect(() => {
+    if (!businessId) return;
   loadDashboard();
   loadBusiness();
 }, [businessId]);

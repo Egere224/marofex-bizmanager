@@ -86,7 +86,7 @@ setBusiness({
   ...businessData,
   subscription: payload.subscription,
 });
-    navigate(`/businesses/${business.id}`);
+    navigate(`/businesses/${business.id}/dashboard`);
     } catch (error) {
       console.error(error);
     }
